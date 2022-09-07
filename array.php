@@ -5,6 +5,7 @@
 
     // print_r($a);
     // echo implode(',',$a);
+    // echo $a[2];
 
 
     // 關聯陣列
@@ -16,17 +17,18 @@
 
     // print_r($user);
     // echo implode(',',$user);
+    echo $user['level'];
 
     // 陣列迴圈
     // 陣列迭代
-    foreach($a as $data){
-        echo "<div>{$data}</div>";
-    }
+    // foreach($a as $data){
+    //     echo "<div>{$data}</div>";
+    // }
 
-    foreach($user as $data){
-        echo "<div>{$data}</div>";
-    }
+    // foreach($user as $data){
+    //     echo "<div>{$data}</div>";
+    // }
 
-    foreach($user as $key => $value){
-        echo "<div>{$key}:{$value}</div>";
-    }
+    // foreach($user as $key => $value){
+    //     echo "<div>{$key}:{$value}</div>";
+    // }

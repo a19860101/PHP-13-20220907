@@ -8,4 +8,8 @@
     $dsn ="mysql:host={$db_host};dbname={$db_name};charset={$db_charset}";
     // data source name
 
-    $pdo=new PDO($dsn,$db_user,$db_pw);
+    try {
+        $pdo=new PDO($dsn,$db_user,$db_pw);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }

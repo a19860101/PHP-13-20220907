@@ -54,6 +54,7 @@
             <label for="">備註</label>
             <textarea name="comment" rows="10" cols="30"><?php echo $student['comment'];?></textarea>
         </div>
+        <input type="hidden" name="id" value="<?php echo $student['id'];?>">
         <input type="submit" value="更新資料">
         <input type="button" value="取消" onclick="history.back()">
     </form>

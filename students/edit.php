@@ -1,4 +1,14 @@
+<?php 
+    include('db.php');
+
+    extract($_REQUEST);
+    $sql = 'SELECT * FROM students WHERE id = ?';
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$id]);
+    $student = $stmt->fetch(PDO::FETCH_ASSOC);
+?>
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,19 +17,19 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>新增資料</h1>
+    <h1>編輯資料</h1>
     <form action="store.php" method="post">
         <div>
             <label for="">姓名</label>
-            <input type="text" name="name">
+            <input type="text" name="name" value="<?php echo $student['name'];?>">
         </div>
         <div>
             <label for="">電話</label>
-            <input type="text" name="phone">
+            <input type="text" name="phone" value="<?php echo $student['phone'];?>">
         </div>
         <div>
             <label for="">Email</label>
-            <input type="text" name="email">
+            <input type="text" name="email" value="<?php echo $student['email'];?>">
         </div>
         <div>
             <label for="">性別</label>
@@ -39,7 +49,9 @@
         </div>
         <div>
             <label for="">備註</label>
-            <textarea name="comment" id="" cols="30" rows="10"></textarea>
+            <textarea name="comment" rows="10" cols="30">
+                <?php echo $student['comment'];?>
+            </textarea>
         </div>
         <input type="submit" value="建立資料">
         <input type="button" value="取消" onclick="history.back()">

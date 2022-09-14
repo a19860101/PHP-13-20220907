@@ -18,7 +18,7 @@
 </head>
 <body>
     <h1>編輯資料</h1>
-    <form action="store.php" method="post">
+    <form action="update.php" method="post">
         <div>
             <label for="">姓名</label>
             <input type="text" name="name" value="<?php echo $student['name'];?>">
@@ -33,27 +33,28 @@
         </div>
         <div>
             <label for="">性別</label>
-            <input type="radio" name="gender" value="男">
+            <input type="radio" name="gender" value="男" <?php echo $student['gender'] == '男' ? 'checked':''; ?>>
             <label for="">男</label>
-            <input type="radio" name="gender" value="女">
+            <input type="radio" name="gender" value="女" <?php echo $student['gender'] == '女' ? 'checked':''; ?>>
             <label for="">女</label>
         </div>
         <div>
+            <?php
+                $skill = explode(',',$student['skill']);
+            ?>
             <label for="">專長</label>
-            <input type="checkbox" name="skill[]" value="平面設計">
+            <input type="checkbox" name="skill[]" value="平面設計" <?php echo in_array('平面設計',$skill)?'checked':'';?>>
             <label for="">平面設計</label>
-            <input type="checkbox" name="skill[]" value="網頁設計">
+            <input type="checkbox" name="skill[]" value="網頁設計" <?php echo in_array('網頁設計',$skill)?'checked':'';?>>
             <label for="">網頁設計</label>
-            <input type="checkbox" name="skill[]" value="影視剪輯">
+            <input type="checkbox" name="skill[]" value="影視剪輯" <?php echo in_array('影視剪輯',$skill)?'checked':'';?>>
             <label for="">影視剪輯</label>
         </div>
         <div>
             <label for="">備註</label>
-            <textarea name="comment" rows="10" cols="30">
-                <?php echo $student['comment'];?>
-            </textarea>
+            <textarea name="comment" rows="10" cols="30"><?php echo $student['comment'];?></textarea>
         </div>
-        <input type="submit" value="建立資料">
+        <input type="submit" value="更新資料">
         <input type="button" value="取消" onclick="history.back()">
     </form>
 </body>

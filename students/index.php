@@ -1,5 +1,12 @@
 <?php
     include('db.php');
+    $sql = 'SELECT * FROM students';
+
+    $students = $pdo -> query($sql) -> fetchAll();
+
+    foreach($students as $student){
+        print_r($student['name']);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

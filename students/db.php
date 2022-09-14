@@ -10,6 +10,7 @@
 
     try {
         $pdo=new PDO($dsn,$db_user,$db_pw);
+
     }catch(PDOException $e){
         echo $e->getMessage();
     }

@@ -2,8 +2,11 @@
     include('db.php');
 
     extract($_REQUEST);
-
-    $skill = implode(',',$skill);
+    if($skill != ''){
+        $skill = implode(',',$skill);
+    }else{
+        $skill = '';
+    }
 
     $sql = 'UPDATE students SET name=?,email=?,phone=?,gender=?,skill=?,comment=? WHERE id = ?';
     $stmt = $pdo->prepare($sql);

@@ -8,6 +8,11 @@
     $dsn ="mysql:host={$db_host};dbname={$db_name};charset={$db_charset}";
     // data source name
 
+    // 設定時區
+    date_default_timezone_set('Asia/Taipei');
+    // 設定時間
+    $now = date('Y-m-d H:i:s');
+
     try {
         $pdo=new PDO($dsn,$db_user,$db_pw);
 

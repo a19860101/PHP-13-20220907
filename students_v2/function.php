@@ -3,13 +3,29 @@
     function index(){
         // global $pdo;
         $sql = 'SELECT * FROM students';
-        $students = pdo()->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-        return $students;
+        try{
+            $students = pdo()->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+            return $students;
+        }catch(PDOException $e){
+            echo $e->getMessage();
+            // print_r($e->getCode());
+            // return $e->getCode();
+            // return [
+            //     'errCode' => $e->getCode()
+            // ];
+        }
     }
     function show($request){
         extract($request);
         $sql = 'SELECT * FROM students WHERE id = ?';
-        $stmt = pdo()->prepare($sql);
-        $stmt->execute([$id]);
-        return $stmt->fetch(PDO::FETCH_ASSOC);        
+        try {
+            $stmt = pdo()->prepare($sql);
+            $stmt->execute([$id]);
+            return $stmt->fetch(PDO::FETCH_ASSOC);        
+        }catch(PDOException $e){
+            echo $e->getMessage();
+            // return [
+            //     'errCode' => $e->getCode()
+            // ];
+        }
     }

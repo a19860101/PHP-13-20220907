@@ -1,7 +1,10 @@
 <?php
     include('function.php');
     $student = show($_REQUEST);
-
+    if(isset($student['errCode'])){
+        echo 'error';
+        return;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

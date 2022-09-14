@@ -1,6 +1,11 @@
 <?php
     include('function.php');
     $students = index();
+   //isset() 判斷括號內資料是否存在
+    if(isset($students['errCode'])){
+        echo 'error';
+        return;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

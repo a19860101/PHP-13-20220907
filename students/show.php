@@ -1,7 +1,8 @@
 <?php
     include('db.php');
 
-    $id = $_REQUEST['id']; 
+    // $id = $_REQUEST['id']; 
+    extract($_REQUEST);
     $sql = 'SELECT * FROM students WHERE id = ?';
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id]);
@@ -30,6 +31,10 @@
         <li><?php echo $student['comment']; ?></li>
         <li><?php echo $student['created_at']; ?></li>
     </ul>
+    <form action="delete.php" method="post">
+        <input type="hidden" name="id" value="<?php echo $student['id'];?>">
+        <input type="submit" value="刪除" onclick="return confirm('此動作將不可復原，確認刪除？')">
+    </form>
     <a href="index.php">學生列表</a>
 </body>
 </html>

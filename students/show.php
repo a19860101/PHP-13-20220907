@@ -1,0 +1,35 @@
+<?php
+    include('db.php');
+
+    $id = $_REQUEST['id']; 
+    $sql = 'SELECT * FROM students WHERE id = ?';
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$id]);
+    $student = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    //  預備陳述式:避免被sql injection攻擊
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        <?php echo $student['name']; ?> 個人資料
+    </h1>
+    <ul>
+        <li><?php echo $student['phone']; ?></li>
+        <li><?php echo $student['email']; ?></li>
+        <li><?php echo $student['gender']; ?></li>
+        <li><?php echo $student['skill']; ?></li>
+        <li><?php echo $student['comment']; ?></li>
+        <li><?php echo $student['created_at']; ?></li>
+    </ul>
+    <a href="index.php">學生列表</a>
+</body>
+</html>

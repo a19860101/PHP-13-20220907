@@ -3,8 +3,6 @@
     $sql = 'SELECT * FROM students';
 
     $students = $pdo -> query($sql) -> fetchAll();
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +41,7 @@
             <td><?php echo $student['gender'];?></td>
             <td><?php echo $student['created_at'];?></td>
             <th>
-                <a href="#">檢視</a>
+                <a href="show.php?id=<?php echo $student['id']; ?>">檢視</a>
             </th>
         </tr>
         <?php } ?>

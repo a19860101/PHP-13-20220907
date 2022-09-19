@@ -50,3 +50,27 @@
             echo $e->getMessage();
         }
     }
+    function edit($request){
+        extract($request);
+        $sql = 'SELECT * FROM students WHERE id = ?';
+        try {
+            $stmt = pdo()->prepare($sql);
+            $stmt->execute([$id]);
+            return $stmt->fetch(PDO::FETCH_ASSOC);        
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+    function update($request){
+        extract($request);
+        if($skill != ''){
+            $skill = implode(',',$skill);
+        }else{
+            $skill = '';
+        }
+    
+        $sql = 'UPDATE students SET name=?,email=?,phone=?,gender=?,skill=?,comment=? WHERE id = ?';
+        $stmt = pdo()->prepare($sql);
+        $stmt->execute([$name,$email,$phone,$gender,$skill,$comment,$id]);
+    
+    }

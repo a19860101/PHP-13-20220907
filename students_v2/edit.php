@@ -1,11 +1,6 @@
 <?php 
-    include('db.php');
-
-    extract($_REQUEST);
-    $sql = 'SELECT * FROM students WHERE id = ?';
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([$id]);
-    $student = $stmt->fetch(PDO::FETCH_ASSOC);
+    include('function.php');
+    $student = edit($_REQUEST);
 ?>
 <!DOCTYPE html>
 

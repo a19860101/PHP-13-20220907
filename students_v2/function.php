@@ -29,3 +29,10 @@
             // ];
         }
     }
+    function store($request){
+        extract($request);
+        $skill = implode(',',$skill);
+        $sql = 'INSERT INTO students(name,phone,email,gender,skill,comment,created_at)VALUES(?,?,?,?,?,?,?)';
+        $stmt = pdo()->prepare($sql);
+        $stmt->execute([$name,$phone,$email,$gender,$skill,$comment,now()]);
+    }

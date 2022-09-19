@@ -33,6 +33,20 @@
         extract($request);
         $skill = implode(',',$skill);
         $sql = 'INSERT INTO students(name,phone,email,gender,skill,comment,created_at)VALUES(?,?,?,?,?,?,?)';
-        $stmt = pdo()->prepare($sql);
-        $stmt->execute([$name,$phone,$email,$gender,$skill,$comment,now()]);
+        try {
+            $stmt = pdo()->prepare($sql);
+            $stmt->execute([$name,$phone,$email,$gender,$skill,$comment,now()]);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+    function delete($request){
+        extract($request);
+        $sql = 'DELETE FROM students WHERE id = ?';
+        try{
+            $stmt = pdo()->prepare($sql);
+            $stmt->execute([$id]);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
     }

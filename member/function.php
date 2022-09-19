@@ -4,12 +4,32 @@
     function store($request){
         extract($request);
         $sql = 'INSERT INTO users(email,pw,name,created_at,updated_at)VALUES(?,?,?,?,?)';
+        if(checkMail($email)!=0){
+            return checkMail($email);
+        }
         try{
             $stmt = pdo()->prepare($sql);
             $pw = password_hash($pw,PASSWORD_DEFAULT);
             $stmt->execute([$email,$pw,$name,now(),now()]);
+            return [
+                'errCode' => 0,
+                'status' => '登入成功'
+            ];
         }catch(PDOException $e){
             echo $e->getMessage();
+        }
+    }
+    function checkMail($email){
+        $sql = 'SELECT * FROM users WHERE email = ?';
+        $stmt = pdo()->prepare($sql);
+        $stmt -> execute([$email]);
+        if($stmt->rowCount() > 0){
+            return [
+                'errCode' => 3,
+                'status' => '帳號重複'
+            ];
+        }else{
+            return 0;
         }
     }
     function auth($request){
@@ -38,4 +58,8 @@
                 'status' => '帳號或密碼錯誤'
             ];
         }
+    }
+    function logout(){
+        session_start();
+        session_destroy();
     }

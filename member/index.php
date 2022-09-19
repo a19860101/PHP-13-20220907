@@ -16,7 +16,8 @@
         <a href="register.php">註冊</a>
         <?php } ?>
         <?php if(isset($_SESSION['AUTH'])){ ?>
-        <a href="#">登出</a>
+        <span><?php echo $_SESSION['AUTH']['email'];?></span>
+        <a href="logout.php">登出</a>
         <?php } ?>
     </nav>
 </body>

@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="auth.php" method="post">
+    <form action="store.php" method="post">
         <div>
             <label for="name">名稱</label>
             <input type="text" name="name" id="name">

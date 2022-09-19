@@ -7,12 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>註冊會員</h1>
-    <form action="store.php" method="post">
-        <div>
-            <label for="name">名稱</label>
-            <input type="text" name="name" id="name">
-        </div>
+    <h1>會員登入</h1>
+    <form action="auth.php" method="post">
         <div>
             <label for="email">E-mail</label>
             <input type="text" name="email" id="email">
@@ -21,7 +17,7 @@
             <label for="pw">密碼</label>
             <input type="password" name="pw" id="pw">
         </div>
-        <input type="submit" value="註冊會員">
+        <input type="submit" value="登入">
         <input type="button" onclick="history.back()" value="取消">
     </form>
 </body>

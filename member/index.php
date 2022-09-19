@@ -12,7 +12,7 @@
 <body>
     <nav>
         <?php if(!isset($_SESSION['AUTH'])){ ?>
-        <a href="#">登入</a>
+        <a href="login.php">登入</a>
         <a href="register.php">註冊</a>
         <?php } ?>
         <?php if(isset($_SESSION['AUTH'])){ ?>

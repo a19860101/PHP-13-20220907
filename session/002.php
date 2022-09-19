@@ -1,3 +1,5 @@
 <?php
     session_start();
-    echo $_SESSION['USER']; 
+    $_SESSION['MSG'] = $_REQUEST['msg'];
+
+    header('location:001.php');

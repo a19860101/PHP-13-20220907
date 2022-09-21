@@ -42,13 +42,27 @@
                 <th>名稱</th>
                 <th>Email</th>
                 <th>權限</th>
+                <?php if(isset($_SESSION['AUTH']) && $_SESSION['AUTH']['role']==0){ ?>
+                <th>更改權限</th>
+                <?php } ?>
             </tr>
             <?php foreach($users as $user){ ?>
                 <tr>
                     <td><?php echo $user['id'];?></td>
                     <td><?php echo $user['name'];?></td>
                     <td><?php echo $user['email'];?></td>
-                    <td><?php echo $user['role'];?></td>
+                    <td>
+                        <?php echo $user['role']==0?'管理員':'一般會員';?>
+                    </td>
+                    <?php if(isset($_SESSION['AUTH']) && $_SESSION['AUTH']['role']==0){ ?>
+                    <td>
+                        <?php if($user['role'] != 0){ ?>
+                        <a href="#">設為管理員</a>
+                        <?php }else{ ?>
+                        <a href="#">設為一般會員</a>
+                        <?php } ?>
+                    </td>
+                    <?php } ?>
                 </tr>
             <?php } ?>
         </table>

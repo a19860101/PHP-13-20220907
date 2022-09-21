@@ -72,3 +72,10 @@
         session_start();
         session_destroy();
     }
+    function switchRole($request){
+        extract($request);
+        $sql = 'UPDATE users SET role=? WHERE id= ?';
+        $stmt = pdo()->prepare($sql);
+        $role = $role == 0 ? 1 : 0;
+        $stmt->execute([$role,$id]);
+    }

@@ -2,6 +2,12 @@
     session_start();
     include('function.php');
     $users = index();
+    if(isset($_REQUEST['submit'])){
+        switchRole($_REQUEST);
+        echo '<script>alert("權限已更改")</script>';
+        header('refresh:0;url=index.php');
+
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,9 +63,21 @@
                     <?php if(isset($_SESSION['AUTH']) && $_SESSION['AUTH']['role']==0){ ?>
                     <td>
                         <?php if($user['role'] != 0){ ?>
-                        <a href="#">設為管理員</a>
+                        <form action="" method="post">
+                            <input type="hidden" value="<?php echo $user['id'];?>" name="id">
+                            <input type="hidden" value="<?php echo $user['role'];?>" name="role">
+                            <input type="submit" value="設為管理員" name="submit" 
+                                <?php if($_SESSION['AUTH']['id']==$user['id']){ echo 'disabled';} ?>
+                            >
+                        </form>
                         <?php }else{ ?>
-                        <a href="#">設為一般會員</a>
+                        <form action="" method="post">
+                            <input type="hidden" value="<?php echo $user['id'];?>" name="id">
+                            <input type="hidden" value="<?php echo $user['role'];?>" name="role">
+                            <input type="submit" value="設為一般會員" name="submit"
+                                <?php if($_SESSION['AUTH']['id']==$user['id']){ echo 'disabled';} ?>
+                            >
+                        </form>
                         <?php } ?>
                     </td>
                     <?php } ?>

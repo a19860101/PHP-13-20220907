@@ -1,6 +1,15 @@
 <?php
     include("db.php");
 
+    function index(){
+        $sql = 'SELECT * FROM users';
+        try{
+            $users = pdo()->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+            return $users;
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
     function store($request){
         extract($request);
         $sql = 'INSERT INTO users(email,pw,name,created_at,updated_at)VALUES(?,?,?,?,?)';

@@ -79,3 +79,13 @@
         $role = $role == 0 ? 1 : 0;
         $stmt->execute([$role,$id]);
     }
+    function denied(){
+        if(!session_id()){
+            session_start();
+        }
+        if(!isset($_SESSION['AUTH']) || $_SESSION['AUTH']['role'] != 0){
+            // echo $_SESSION['AUTH']['role'];
+            header('location:index.php');
+            return;
+        }
+    }

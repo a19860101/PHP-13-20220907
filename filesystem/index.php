@@ -11,6 +11,14 @@
         <input type="file" name="img">
         <input type="submit" value="上傳">
     </form>
-    <?php echo md5(time()); ?>
+    <div>
+        <?php 
+            $imgs = glob('images/*');
+            // print_r($imgs);
+        ?>
+        <?php foreach($imgs as $img){ ?>
+            <img src="<?php echo $img; ?>" width= "100">
+        <?php } ?>
+    </div>
 </body>
 </html>

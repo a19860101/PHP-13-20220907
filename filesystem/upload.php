@@ -14,6 +14,10 @@
     // echo $tmp_name;
     // echo $error;
     // echo $size;
+
+    $img_name = md5(time());
+    $ext = pathinfo($name,PATHINFO_EXTENSION);
+    $fullname = $img_name.'.'.$ext;
     
     $folder = 'images/';
 
@@ -21,6 +25,12 @@
         mkdir($folder);
     }
 
-    $target = $folder.$name;
+    $target = $folder.$fullname;
 
-    move_uploaded_file($tmp_name,$target);
+    if($error == 0){
+        if(move_uploaded_file($tmp_name,$target)){
+            echo '上傳成功';
+        }else{
+            echo '上傳失敗';
+        }
+    }

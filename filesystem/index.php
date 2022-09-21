@@ -11,5 +11,6 @@
         <input type="file" name="img">
         <input type="submit" value="上傳">
     </form>
+    <?php echo md5(time()); ?>
 </body>
 </html>

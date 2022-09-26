@@ -1,4 +1,8 @@
 <?php 
+    include('db.php');
+    $sql = 'SELECT * FROM galleries';
+    $imgs = pdo()->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    $img_num = count($imgs);
     if(isset($_REQUEST['delete'])){
         unlink($_REQUEST['img']);
     }
@@ -23,14 +27,10 @@
         <input type="submit" value="上傳">
     </form>
     <div>
-        <?php 
-            $imgs = glob('images/*');
-            // print_r($imgs);
-            $img_num = count($imgs);
-        ?>
+
         <div>目前共有 <?php echo $img_num;?> 張</div>
         <?php foreach($imgs as $img){ ?>
-            <img src="<?php echo $img; ?>" width= "100">
+            <img src="images/<?php echo $img['path']; ?>" width= "100">
             <form action="" method="post">
                 <input type="hidden" name="img" value="<?php echo $img;?>">
                 <input type="submit" value="刪除" name="delete" onclick="return confirm('確認刪除？')">

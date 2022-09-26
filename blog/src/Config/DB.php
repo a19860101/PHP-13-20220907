@@ -2,7 +2,7 @@
     namespace Gjun\Blog\Config;
     use PDO;
     class DB {
-        function pdo(){
+        static function pdo(){
             $db_host = 'localhost';
             $db_user = 'admin';
             $db_pw = 'admin';
@@ -20,7 +20,7 @@
             return $pdo;
         }
     
-        function now(){
+        static function now(){
     
             // 設定時區
             date_default_timezone_set('Asia/Taipei');

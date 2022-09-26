@@ -1,0 +1,15 @@
+{
+    "name": "gjun/blog",
+    "autoload": {
+        "psr-4": {
+            "Gjun\\Blog\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Zac",
+            "email": "a19860101@gmail.com"
+        }
+    ],
+    "require": {}
+}

@@ -1,26 +1,28 @@
 <?php
-    class Test {
-        public $skin = 'white';
-        public $height;
-        public $name = 'undefined';
-
-        public function go(){
-            return $this->name.' gogogo';
-        } 
+    class User {
+        public $name;
+        public $hp = 100;
+        private $role = 'Human';
+        public function walk(){
+            return 'walk';
+        }
+        public function attack(){
+            return 'attack';
+        }
+        public function test(){
+            return $this->role;
+        }
     }
 
-    $john = new Test;
+    class NPC extends User {
+        public $name = 'npc';
+        public function test2(){
+            return $this->role;
+        }
+    }
 
-    // print_r($john);
-
-    // echo $john->skin;
-    // echo $john->height;
-
-
-    $mary = new Test;
-    $mary->name = 'Mary';
-    $mary->skin = 'black';
-    $mary->height = 177;
-    echo $mary->go();
-    // echo $mary->skin;
-    // echo $mary->height;
+    $max = new User;
+    $max->name = 'Max';
+    echo $max->test();
+    $npc1 = new NPC;
+    echo $npc1->test2();

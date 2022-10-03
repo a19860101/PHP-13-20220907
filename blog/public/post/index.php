@@ -17,7 +17,10 @@
             <div class="shadow-sm border rounded mb-4 p-4">
                 <h3 class="mb-4"><?php echo $post['title']; ?></h3>
                 <div class="mb-4 lh-lg">
-                    <?php echo $post['content']; ?>
+                    <?php
+                        $content = mb_substr($post['content'],0,100); 
+                        echo $content.'...'; 
+                    ?>
                 </div>
                 <a href="show.php?id=<?php echo $post['id']; ?>">繼續閱讀</a>
                 <div class="text-end text-muted"><?php echo $post['created_at']; ?></div>

@@ -5,7 +5,7 @@
 
     class Post {
         static function index(){
-            $sql = 'SELECT * FROM posts';
+            $sql = 'SELECT * FROM posts ORDER BY id DESC';
             $data = DB::pdo()->query($sql)->fetchAll(PDO::FETCH_ASSOC);
             return $data;
         }

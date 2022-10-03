@@ -33,4 +33,13 @@
             $data = $stmt->fetch();
             return $data;
         }
+        static function update($request){
+            extract($request);
+            $sql = 'UPDATE posts SET title=?,content=?,category_id=?,updated_at=? WHERE id=?';
+            $stmt = DB::pdo()->prepare($sql);
+            $stmt->execute([$title, $content, $category_id, DB::now(), $id]);
+            return [
+                'id'=>$id
+            ];
+        }
     }

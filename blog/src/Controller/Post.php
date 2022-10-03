@@ -9,7 +9,14 @@
             $data = DB::pdo()->query($sql)->fetchAll(PDO::FETCH_ASSOC);
             return $data;
         }
-        static function show(){}
+        static function show($request){
+            extract($request);
+            $sql = 'SELECT * FROM posts WHERE id = ?';
+            $stmt = DB::pdo()->prepare($sql);
+            $stmt->execute([$id]);
+            $data = $stmt->fetch();
+            return $data;
+        }
         static function store($request){
             session_start();
             extract($request);

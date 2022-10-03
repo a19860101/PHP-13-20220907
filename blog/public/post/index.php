@@ -19,6 +19,7 @@
                 <div class="mb-4 lh-lg">
                     <?php echo $post['content']; ?>
                 </div>
+                <a href="show.php?id=<?php echo $post['id']; ?>">繼續閱讀</a>
                 <div class="text-end text-muted"><?php echo $post['created_at']; ?></div>
             </div>
             <?php } ?>

@@ -1,14 +1,4 @@
-<?php
-    // include('../src/Config/Test.php');
-    // include('../src/Config/DB.php');
-    include('../vendor/autoload.php');
-    // use  Gjun\Blog\Config\Test;
-    use  Gjun\Blog\Config\DB;
+<?php include('template/header.php'); ?>
+<?php include('template/nav.php'); ?>
 
-    $go = new Gjun\Blog\Config\Test;
-    echo $go->go();
-    echo $go->walk();
-    echo $go->run();
-
-    $now = new DB;
-    echo $now->now();
+<?php include('template/footer.php'); ?>

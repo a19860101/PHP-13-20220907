@@ -42,4 +42,9 @@
                 'id'=>$id
             ];
         }
+        static function delete($id){
+            $sql = 'DELETE FROM posts WHERE id = ?';
+            $stmt = DB::pdo()->prepare($sql);
+            $stmt->execute([$id]);
+        }
     }

@@ -16,6 +16,7 @@
                 </div>
                 <div class="text-end text-muted"><?php echo $post['created_at']; ?></div>
                 <a href="index.php" class="btn btn-success btn-sm">文章列表</a>
+                <a href="edit.php?id=<?php echo $post['id'];?>" class="btn btn-info btn-sm">編輯文章</a>
             </div>
         </div>
     </div>

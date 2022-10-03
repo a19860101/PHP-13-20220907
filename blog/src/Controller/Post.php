@@ -25,4 +25,12 @@
             $user_id = 1;
             $stmt->execute([$title,$content,$category_id,$user_id,DB::now(),DB::now()]);
         }
+        static function edit($request){
+            extract($request);
+            $sql = 'SELECT * FROM posts WHERE id = ?';
+            $stmt = DB::pdo()->prepare($sql);
+            $stmt->execute([$id]);
+            $data = $stmt->fetch();
+            return $data;
+        }
     }

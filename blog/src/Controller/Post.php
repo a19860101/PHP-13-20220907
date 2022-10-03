@@ -1,9 +1,14 @@
 <?php
     namespace Gjun\Blog\Controller;
+    use PDO;
     use Gjun\Blog\Config\DB;
 
     class Post {
-        static function index(){}
+        static function index(){
+            $sql = 'SELECT * FROM posts';
+            $data = DB::pdo()->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+            return $data;
+        }
         static function show(){}
         static function store($request){
             session_start();

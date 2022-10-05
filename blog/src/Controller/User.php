@@ -13,16 +13,16 @@
                 echo $e->getMessage();
             }
         }
-        function store($request){
+        static function store($request){
             extract($request);
             $sql = 'INSERT INTO users(email,pw,name,created_at,updated_at)VALUES(?,?,?,?,?)';
-            if(checkMail($email)!=0){
-                return checkMail($email);
+            if(User::checkMail($email)!=0){
+                return User::checkMail($email);
             }
             try{
-                $stmt = pdo()->prepare($sql);
+                $stmt = DB::pdo()->prepare($sql);
                 $pw = password_hash($pw,PASSWORD_DEFAULT);
-                $stmt->execute([$email,$pw,$name,now(),now()]);
+                $stmt->execute([$email,$pw,$name,DB::now(),DB::now()]);
                 return [
                     'errCode' => 0,
                     'status' => '登入成功'
@@ -31,14 +31,14 @@
                 echo $e->getMessage();
             }
         }
-        function checkMail($email){
+        static function checkMail($email){
             $sql = 'SELECT * FROM users WHERE email = ?';
-            $stmt = pdo()->prepare($sql);
+            $stmt = DB::pdo()->prepare($sql);
             $stmt -> execute([$email]);
             if($stmt->rowCount() > 0){
                 return [
                     'errCode' => 3,
-                    'status' => '帳號重複'
+                    'status' => '帳號重複，請重新註冊!'
                 ];
             }else{
                 return 0;

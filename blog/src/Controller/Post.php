@@ -22,7 +22,7 @@
             extract($request);
             $sql = 'INSERT INTO posts(title,content,category_id,user_id,created_at,updated_at)VALUES(?,?,?,?,?,?)';
             $stmt = DB::pdo()->prepare($sql);
-            $user_id = 1;
+            $user_id = $_SESSION['AUTH']['id'];
             $stmt->execute([$title,$content,$category_id,$user_id,DB::now(),DB::now()]);
         }
         static function edit($request){

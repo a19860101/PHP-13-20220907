@@ -1,5 +1,8 @@
 <?php
     $webroot = 'http://localhost/php-13-20220907/blog/public/';
+    if(!session_id()){
+      session_start();
+    }
 ?>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark mb-5">
   <div class="container-fluid">

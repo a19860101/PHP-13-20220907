@@ -10,7 +10,9 @@
     <div class="row">
         <div class="col-12 d-flex justify-content-between align-items-center mb-4">
             <h2>文章列表</h2>
+            <?php if(isset($_SESSION['AUTH'])){ ?>
             <a href="create.php" class="btn btn-primary">新增文章</a>
+            <?php } ?>
         </div>
         <div class="col-12">
             <?php foreach($posts as $post) { ?>

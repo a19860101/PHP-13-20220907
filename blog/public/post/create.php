@@ -1,3 +1,8 @@
+<?php
+    include('../../vendor/autoload.php');
+    $categories = Gjun\Blog\Controller\Category::index();
+?>
+
 <?php include('../template/header.php'); ?>
 <?php include('../template/nav.php'); ?>
 <div class="container">
@@ -15,10 +20,11 @@
                     <label for="" class="form-label">文章分類</label>
                     <select name="category_id" id="" class="form-select">
                         <option>--請選擇--</option>
-                        <option value="1">科技</option>
-                        <option value="2">美食</option>
-                        <option value="3">生活</option>
-                        <option value="4">運動</option>
+                        <?php foreach($categories as $category){ ?>
+                        <option value="<?php echo $category['id'];?>">
+                            <?php echo $category['title'];?>
+                        </option>
+                        <?php } ?>
                     </select>
                 </div>
                 <div class="mb-3">

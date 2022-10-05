@@ -1,8 +1,10 @@
 <?php
     include('../../vendor/autoload.php');
     use Gjun\Blog\Controller\Post;
+    use Gjun\Blog\Controller\Category;
     
     $post = Post::show($_REQUEST);
+    $categories = Category::index();
 ?>
 <?php include('../template/header.php'); ?>
 <?php include('../template/nav.php'); ?>
@@ -21,10 +23,12 @@
                     <label for="" class="form-label">文章分類</label>
                     <select name="category_id" id="" class="form-select">
                         <option>--請選擇--</option>
-                        <option value="1" <?php echo $post['category_id']==1 ? 'selected':''; ?>>科技</option>
-                        <option value="2" <?php echo $post['category_id']==2 ? 'selected':''; ?>>美食</option>
-                        <option value="3" <?php echo $post['category_id']==3 ? 'selected':''; ?>>生活</option>
-                        <option value="4" <?php echo $post['category_id']==4 ? 'selected':''; ?>>運動</option>
+                        <?php foreach($categories as $category){ ?>
+                        <option 
+                            value="<?php echo $category['id'];?>"
+                            <?php echo $post['category_id']==$category['id'] ? 'selected':''; ?>
+                            ><?php echo $category['title'];?></option>
+                        <?php } ?>
                     </select>
                 </div>
                 <div class="mb-3">

@@ -1,3 +1,8 @@
+<?php
+    include('../../vendor/autoload.php');
+    use Gjun\Blog\Controller\Category;
+    $categories = Category::index();
+?>
 <?php include('../template/header.php'); ?>
 <?php include('../template/nav.php'); ?>
 <div class="container">
@@ -6,7 +11,7 @@
             <h2>分類管理</h2>
         </div>
         <div class="col-8">
-            <form action="">
+            <form action="store.php" method="post">
                 <div class="mb-3">
                     <label for="title" class="form-label">分類名稱</label>
                     <input type="text" name="title" id="title" class="form-control">
@@ -16,9 +21,9 @@
         </div>
         <div class="col-4">
             <ul class="list-group">
-                <li class="list-group-item">test</li>
-                <li class="list-group-item">test</li>
-                <li class="list-group-item">test</li>
+                <?php foreach($categories as $category){ ?>
+                <li class="list-group-item"><?php echo $category['title'];?></li>
+                <?php }?>
             </ul>
         </div>
     </div>

@@ -17,15 +17,21 @@
         </li>
       </ul>
       <ul class="navbar-nav ms-auto">
+        
+      <?php if(!isset($_SESSION['AUTH'])){ ?>
         <li class="nav-item">
           <a href="<?php echo $webroot;?>user/register.php" class="nav-link">註冊</a>
         </li>
         <li class="nav-item">
           <a href="<?php echo $webroot;?>user/login.php" class="nav-link">登入</a>
         </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">登出</a>
-        </li>
+        <?php } ?>
+        
+        <?php if(isset($_SESSION['AUTH'])){ ?>
+          <li class="nav-item">
+            <a href="<?php echo $webroot;?>user/logout.php" class="nav-link">登出</a>
+          </li>
+        <?php } ?>
       </ul>
     </div>
   </div>

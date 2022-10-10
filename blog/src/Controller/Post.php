@@ -5,7 +5,8 @@
 
     class Post {
         static function index(){
-            $sql = 'SELECT * FROM posts ORDER BY id DESC';
+            // $sql = 'SELECT * FROM posts ORDER BY id DESC';
+            $sql = 'SELECT posts.* , users.email, users.name FROM posts LEFT JOIN users ON posts.user_id = users.id ORDER BY posts.id DESC ';
             $data = DB::pdo()->query($sql)->fetchAll(PDO::FETCH_ASSOC);
             return $data;
         }

@@ -18,6 +18,7 @@
             <?php foreach($posts as $post) { ?>
             <div class="shadow-sm border rounded mb-4 p-4">
                 <h3 class="mb-4"><?php echo $post['title']; ?></h3>
+                <div><?php echo $post['name']?></div>
                 <div class="mb-4 lh-lg">
                     <?php
                         $content = mb_substr($post['content'],0,100); 

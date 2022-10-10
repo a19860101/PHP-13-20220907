@@ -11,6 +11,8 @@
         <div class="col-12x mb-4">
             <div class="shadow-sm border rounded mb-4 p-4">
                 <h3 class="mb-4"><?php echo $post['title']; ?></h3>
+                <div>作者:<?php echo $post['name']?></div>
+                <div>分類:<?php echo $post['category_title'];?></div>
                 <div class="mb-4 lh-lg">
                     <?php echo $post['content']; ?>
                 </div>

@@ -18,7 +18,5 @@ use App\Http\Controllers\TestController;
 Route::get('/', function () {
     return view('welcome');
 });
-// Route::get('qwer',[TestController::class,'qwer']);
-Route::get('qwer',[TestController::class,'qwer']);
 
-Route::get('qwer/hello',[TestController::class,'hello']);
+Route::get('/test/{id}',[TestController::class,'qwer']);

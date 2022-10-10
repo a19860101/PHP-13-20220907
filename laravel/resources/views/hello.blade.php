@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>HELLO #{{$id}}</h1>
+    <h1>HELLO #{{$id}} / {{$page}}</h1>
 </body>
 </html>

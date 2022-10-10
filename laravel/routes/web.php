@@ -19,4 +19,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test/{id}',[TestController::class,'qwer']);
+Route::get('/test/{id}/{page}',[TestController::class,'qwer']);

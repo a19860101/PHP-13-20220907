@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\TestController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('hello',function(){
-    return view('hello');
-});
+// Route::get('qwer',[TestController::class,'qwer']);
+Route::get('qwer',[TestController::class,'qwer']);
+
+Route::get('qwer/hello',[TestController::class,'hello']);

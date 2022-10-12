@@ -12,9 +12,12 @@ php artisan serve
 php artisan make:controller TestController
 ```
 
-## Migrate
+## Migrate & Migration
 
 ```bash
+
+php artisan make:migration create_products_table
+# 建立migration
 
 php artisan migrate
 # 上傳migration

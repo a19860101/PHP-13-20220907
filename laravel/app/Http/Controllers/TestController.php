@@ -22,6 +22,6 @@ class TestController extends Controller
         return view('form');
     }
     public function res(Request $request){
-        return $request;
+        return $request->email;
     }
 }

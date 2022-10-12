@@ -20,3 +20,4 @@ Route::get('/', function () {
 });
 
 Route::get('/test/{id}/{page}',[TestController::class,'qwer']);
+Route::get('/form',[TestController::class,'form']);

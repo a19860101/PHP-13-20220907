@@ -18,4 +18,7 @@ class TestController extends Controller
         // ]);
         return view('hello',compact('id','page'));
     }
+    public function form(){
+        return view('form');
+    }
 }

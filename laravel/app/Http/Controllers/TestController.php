@@ -21,4 +21,7 @@ class TestController extends Controller
     public function form(){
         return view('form');
     }
+    public function res(Request $request){
+        return $request;
+    }
 }

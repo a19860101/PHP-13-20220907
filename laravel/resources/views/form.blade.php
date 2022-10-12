@@ -7,9 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="post">
+    <form action="/res" method="post">
+        @csrf
         <div>
-            <input type="text" name="msg">
+            <input type="text" name="name">
+        </div>
+        <div>
+            <input type="text" name="phone">
+        </div>
+        <div>
+            <input type="text" name="email">
         </div>
         <input type="submit">
     </form>

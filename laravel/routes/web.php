@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,5 @@ Route::get('/', function () {
 Route::get('/test/{id}/{page}',[TestController::class,'qwer']);
 Route::get('/form',[TestController::class,'form']);
 Route::post('/res',[TestController::class,'res']);
+
+Route::get('/admin/product/create',[ProductController::class,'create']);

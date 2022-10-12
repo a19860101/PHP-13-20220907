@@ -9,7 +9,9 @@ class ProductController extends Controller
 {
     //
     public function index(){
-        return view('admin.product.index');
+        // $products = DB::select('SELECT * FROM products');
+        $products = DB::table('products')->get();
+        return view('admin.product.index',compact('products'));
     }
     public function create(){
         // return view('admin/product/create');

@@ -6,6 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>QQQ Shop 後台管理介面</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        table,td,th {
+            border: 1px solid #999;
+            padding: 8px;
+        }
+    </style>
 </head>
 <body>
     <nav class="w-[300px] bg-gray-900 fixed h-screen">

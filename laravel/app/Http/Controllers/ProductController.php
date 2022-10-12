@@ -9,8 +9,8 @@ class ProductController extends Controller
 {
     //
     public function index(){
-        // $products = DB::select('SELECT * FROM products');
-        $products = DB::table('products')->get();
+        // $products = DB::select('SELECT * FROM products ORDER BY id DESC');
+        $products = DB::table('products')->orderBy('id','DESC')->get();
         return view('admin.product.index',compact('products'));
     }
     public function create(){

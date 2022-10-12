@@ -30,3 +30,4 @@ Route::get('/admin',function(){
 
 Route::get('/admin/product',[ProductController::class,'index']);
 Route::get('/admin/product/create',[ProductController::class,'create']);
+Route::post('/admin/product',[ProductController::class,'store']);

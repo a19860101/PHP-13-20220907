@@ -24,4 +24,9 @@ Route::get('/test/{id}/{page}',[TestController::class,'qwer']);
 Route::get('/form',[TestController::class,'form']);
 Route::post('/res',[TestController::class,'res']);
 
+Route::get('/admin',function(){
+    return view('admin.index');
+});
+
+Route::get('/admin/product',[ProductController::class,'index']);
 Route::get('/admin/product/create',[ProductController::class,'create']);

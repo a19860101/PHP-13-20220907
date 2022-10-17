@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-
+use Str;
 class ProductController extends Controller
 {
     //
@@ -18,6 +18,14 @@ class ProductController extends Controller
         return view('admin.product.create');
     }
     public function store(Request $request){
+
+        // return $request->file('cover')->store('test','public');
+        // return $request->file('cover')->storeAs('qqq123','test','public');
+
+        $ext =$request->file('cover')->getClientOriginalExtension();
+        $img_name = Str::uuid().'.'.$ext;
+        $request->file('cover')->storeAs('images',$img_name,'public');
+        return ;
         // DB::insert('INSERT INTO products(title,description,price,special_price,publish_at,unpublish_at,published)VALUES(?,?,?,?,?,?,?)',[
         //     $request->title,
         //     $request->description,

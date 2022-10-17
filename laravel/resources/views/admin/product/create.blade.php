@@ -2,11 +2,15 @@
 @section('main')
 <div class="p-3">
     <h1 class="text-4xl bold mb-5">建立商品</h1>
-    <form action="/admin/product" method="post">
+    <form action="/admin/product" method="post" enctype="multipart/form-data">
         @csrf
         <div class="mb-4">
             <label for="">商品名稱</label>
             <input type="text" name="title" class="border border-zinc-900">
+        </div>
+        <div class="mb-4">
+            <label for="">商品封面</label>
+            <input type="file" name="cover">
         </div>
         <div class="mb-4">
             <label for="">商品敘述</label>

@@ -39,6 +39,8 @@ class ProductController extends Controller
         return redirect('/admin/product');
     }
     public function destroy($id){
-        return $id;
+        // DB::delete('DELETE FROM products WHERE id = ?',[$id]);
+        DB::table('products')->delete($id);
+        return redirect('/admin/product');
     }
 }

@@ -22,7 +22,7 @@
                 <form action="/admin/product/{{$product->id}}" method="post">
                     @method('delete')
                     @csrf
-                    <input type="submit" value="刪除" class="bg-red-600 px-6 py-2 text-white rounded">
+                    <input type="submit" value="刪除" class="bg-red-600 px-6 py-2 text-white rounded" onclick="return confirm('確認刪除？')">
                 </form>
             </td>
         </tr>

@@ -19,7 +19,8 @@
             <td>{{$product->special_price}}</td>
             <td>{{$product->publish_at}}</td>
             <td>
-                <form action="/admin/product/{{$product->id}}" method="post">
+                <a href="/admin/product/{{$product->id}}/edit" class="inline-block bg-sky-600 px-6 py-2 text-white rounded">檢視編輯</a>
+                <form action="/admin/product/{{$product->id}}" method="post" class="inline-block">
                     @method('delete')
                     @csrf
                     <input type="submit" value="刪除" class="bg-red-600 px-6 py-2 text-white rounded" onclick="return confirm('確認刪除？')">

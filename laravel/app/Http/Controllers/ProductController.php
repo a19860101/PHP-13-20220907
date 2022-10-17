@@ -38,4 +38,7 @@ class ProductController extends Controller
         ]);
         return redirect('/admin/product');
     }
+    public function destroy($id){
+        return $id;
+    }
 }

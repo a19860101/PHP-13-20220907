@@ -9,6 +9,7 @@
                 <th>售價</th>
                 <th>特價</th>
                 <th>上架日期</th>
+                <th>動作</th>
             </tr>
         </tr>
         @foreach($products as $product)
@@ -17,6 +18,13 @@
             <td>{{$product->price}}</td>
             <td>{{$product->special_price}}</td>
             <td>{{$product->publish_at}}</td>
+            <td>
+                <form action="/admin/product/{{$product->id}}" method="post">
+                    @method('delete')
+                    @csrf
+                    <input type="submit" value="刪除" class="bg-red-600 px-6 py-2 text-white rounded">
+                </form>
+            </td>
         </tr>
         @endforeach
     </table>

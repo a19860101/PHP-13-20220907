@@ -38,8 +38,10 @@ class ProductController extends Controller
         ]);
         return redirect('/admin/product');
     }
-    public function edit(){
-        return view('admin.product.edit');
+    public function edit($id){
+        // $product = DB::select('SELECT * FROM products WHERE id = ?',[$id]);
+        $product = DB::table('products')->find($id);
+        return view('admin.product.edit',compact('product'));
     }
     public function destroy($id){
         // DB::delete('DELETE FROM products WHERE id = ?',[$id]);

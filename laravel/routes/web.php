@@ -31,7 +31,6 @@ Route::get('/admin',function(){
 Route::get('/admin/product',[ProductController::class,'index']);
 Route::get('/admin/product/create',[ProductController::class,'create']);
 Route::post('/admin/product',[ProductController::class,'store']);
-
 Route::delete('/admin/product/{id}',[ProductController::class,'destroy']);
 Route::get('/admin/product/{id}/edit',[ProductController::class,'edit']);
 Route::put('admin/product/{id}',[ProductController::class,'update']);

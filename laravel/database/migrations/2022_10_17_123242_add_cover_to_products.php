@@ -15,7 +15,7 @@ class AddCoverToProducts extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             //
-            $table->string('cover')->after('title');
+            $table->string('cover')->nullable()->after('title');
         });
     }
 

@@ -22,10 +22,7 @@ class ProductController extends Controller
         // return $request->file('cover')->store('test','public');
         // return $request->file('cover')->storeAs('qqq123','test','public');
 
-        $ext =$request->file('cover')->getClientOriginalExtension();
-        $img_name = Str::uuid().'.'.$ext;
-        $request->file('cover')->storeAs('images',$img_name,'public');
-        return ;
+
         // DB::insert('INSERT INTO products(title,description,price,special_price,publish_at,unpublish_at,published)VALUES(?,?,?,?,?,?,?)',[
         //     $request->title,
         //     $request->description,
@@ -35,8 +32,17 @@ class ProductController extends Controller
         //     $request->unpublish_at,
         //     $request->published
         // ]);
+        if($request->file('cover')){
+            $ext =$request->file('cover')->getClientOriginalExtension();
+            $img_name = Str::uuid().'.'.$ext;
+            $request->file('cover')->storeAs('images',$img_name,'public');
+        }else{
+            $img_name = null;
+        }
+
         DB::table('products')->insert([
             'title'         => $request->title,
+            'cover'         => $img_name,
             'description'   => $request->description,
             'price'         => $request->price,
             'special_price' => $request->special_price,

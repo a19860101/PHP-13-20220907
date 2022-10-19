@@ -67,4 +67,8 @@ class ProductController extends Controller
         return redirect('/admin/product');
 
     }
+    public function front_index(){
+        $products = Product::get();
+        return view('product.index',compact('products'));
+    }
 }

@@ -35,7 +35,9 @@ Route::get('/admin/product/create',[ProductController::class,'create']);
 Route::post('/admin/product',[ProductController::class,'store']);
 Route::delete('/admin/product/{id}',[ProductController::class,'destroy']);
 Route::get('/admin/product/{id}/edit',[ProductController::class,'edit']);
-Route::put('admin/product/{id}',[ProductController::class,'update']);
+Route::put('/admin/product/{id}',[ProductController::class,'update']);
+
+Route::get('/product',[ProductController::class,'front_index']);
 
 // Category
 //若使用resource controller

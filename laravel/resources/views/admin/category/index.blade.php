@@ -14,9 +14,16 @@
     </div>
     <div class="w-1/2 px-5">
         <h2 class="text-3xl bold mb-3">所有商品分類</h2>
-        <ul>
+        <ul class="divide-y divide-zinc-700 border border-zinc-700">
             @foreach($categories as $category)
-            <li class="border border-zinc-900 px-5 py-3">{{$category->title}}</li>
+            <li class="px-5 py-3 flex items-center justify-between">
+                {{$category->title}}
+                <form action="/admin/category/{{$category->id}}" method="post">
+                    @csrf
+                    @method('delete')
+                    <input type="submit" value="刪除" class="bg-rose-600 text-white px-4 py-2 rounded-lg" onclick="return confirm('確認刪除？')">
+                </form>
+            </li>
             @endforeach
         </ul>
     </div>

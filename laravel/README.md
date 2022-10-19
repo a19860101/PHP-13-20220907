@@ -39,6 +39,6 @@ php artisan migrate:reset
 php artisan make:model Product
 # 建立model
 
-php artisan make:model Product -cm
-# 建立model並同時建立Controller與Migration
+php artisan make:model Product -cmr
+# 建立model並同時建立Controller、Migration與Resource
 ```

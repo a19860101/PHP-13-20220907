@@ -6,7 +6,7 @@
 php artisan serve
 ```
 
-## controller
+## Controller
 
 ```bash
 php artisan make:controller TestController
@@ -31,4 +31,14 @@ php artisan migrate:rollback
 php artisan migrate:reset
 # 重置migration
 
+```
+
+## Model
+
+```bash
+php artisan make:model Product
+# 建立model
+
+php artisan make:model Product -cm
+# 建立model並同時建立Controller與Migration
 ```

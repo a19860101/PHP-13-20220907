@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Str;
 
 class ProductController extends Controller
 {
@@ -15,7 +16,39 @@ class ProductController extends Controller
     public function create(){
         return view('admin.product.create');
     }
-    public function store(){}
+    public function store(Request $request){
+
+        if($request->file('cover')){
+            $ext =$request->file('cover')->getClientOriginalExtension();
+            $img_name = Str::uuid().'.'.$ext;
+            $request->file('cover')->storeAs('images',$img_name,'public');
+        }else{
+            $img_name = null;
+        }
+
+        // 方法一
+        // $product = new Product;
+        // $product->title         = $request->title;
+        // $product->cover         = $img_name;
+        // $product->description   = $request->description;
+        // $product->price         = $request->price;
+        // $product->special_price = $request->special_price;
+        // $product->publish_at    = $request->publish_at;
+        // $product->unpublish_at  = $request->unpublish_at;
+        // $product->published     = $request->published;
+        // $product->save();
+
+        // 方法二
+        $product = new Product;
+        $product->fill($request->all());
+        $product->cover = $img_name;
+        $product->save();
+
+        // 方法三
+        // Product::create($request->all());
+
+        return redirect('/admin/product');
+    }
     public function edit(){}
     public function update(){}
     public function destroy(){}

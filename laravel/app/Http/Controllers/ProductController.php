@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Str;
+use App\Models\Category;
 
 class ProductController extends Controller
 {
@@ -14,7 +15,8 @@ class ProductController extends Controller
         return view('admin.product.index',compact('products'));
     }
     public function create(){
-        return view('admin.product.create');
+        $categories = Category::get();
+        return view('admin.product.create',compact('categories'));
     }
     public function store(Request $request){
 

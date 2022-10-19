@@ -9,6 +9,14 @@
             <input type="text" name="title" class="border border-zinc-900">
         </div>
         <div class="mb-4">
+            <label for="">商品分類</label>
+            <select name="category_id" id="" class="border border-zinc-900">
+                @foreach($categories as $category)
+                <option value="{{$category->id}}">{{$category->title}}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="mb-4">
             <label for="">商品封面</label>
             <input type="file" name="cover">
         </div>

@@ -68,7 +68,7 @@ class ProductController extends Controller
 
     }
     public function front_index(){
-        $products = Product::get();
+        $products = Product::orderBy('id','DESC')->get();
         return view('product.index',compact('products'));
     }
 }

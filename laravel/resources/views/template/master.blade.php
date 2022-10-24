@@ -14,7 +14,10 @@
             <ul class="flex">
                 <li><a href="/product">所有商品</a></li>
             </ul>
-            <ul class="ml-auto">
+            <ul class="ml-auto flex">
+                <li class="mr-4">
+                    <a href="/cart">購物車</a>
+                </li>
                 <li>
                     @auth
                     <a href="{{ url('/dashboard') }}">{{Auth::user()->name;}}</a>

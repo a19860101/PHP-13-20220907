@@ -47,6 +47,7 @@ Route::resource('admin/category',CategoryController::class);
 
 //Cart
 Route::post('cart',[CartController::class,'addToCart']);
+Route::get('cart',[CartController::class,'cartIndex']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

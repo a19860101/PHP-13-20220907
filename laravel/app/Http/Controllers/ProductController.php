@@ -71,4 +71,8 @@ class ProductController extends Controller
         $products = Product::orderBy('id','DESC')->get();
         return view('product.index',compact('products'));
     }
+    public function front_show(Product $product){
+        // $product = Product::find($id);
+        return $product;
+    }
 }

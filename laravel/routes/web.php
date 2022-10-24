@@ -38,6 +38,7 @@ Route::get('/admin/product/{id}/edit',[ProductController::class,'edit']);
 Route::put('/admin/product/{id}',[ProductController::class,'update']);
 
 Route::get('/product',[ProductController::class,'front_index']);
+Route::get('/product/{product}',[ProductController::class,'front_show']);
 
 // Category
 //若使用resource controller

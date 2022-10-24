@@ -7,7 +7,9 @@
             <img src="images/{{$product->cover}}"  class="w-full">
         </div>
         <div>
-            <h3>{{$product->title}}</h3>
+            <h3>
+                <a href="/product/{{$product->id}}">{{$product->title}}</a>
+            </h3>
             <div>
                 {{$product->price}}
             </div>

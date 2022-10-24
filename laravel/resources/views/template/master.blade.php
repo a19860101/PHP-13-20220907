@@ -9,10 +9,23 @@
 </head>
 <body>
     <nav class="w-full bg-zinc-700 text-white flex justify-between px-3 py-4">
-        <a href="/product/" class="w-[200px]">QQQ SHOP</a>
+        <a href="/product/" class="w-[120px]">QQQ SHOP</a>
         <div class="flex w-full">
-            <ul class="flex ml-auto">
+            <ul class="flex">
                 <li><a href="/product">所有商品</a></li>
+            </ul>
+            <ul class="ml-auto">
+                <li>
+                    @auth
+                    <a href="{{ url('/dashboard') }}">{{Auth::user()->name;}}</a>
+                    @else
+                    <a href="{{ route('login') }}">Log in</a>
+
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="ml-4">Register</a>
+                    @endif
+                    @endauth
+                </li>
             </ul>
         </div>
     </nav>

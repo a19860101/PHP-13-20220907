@@ -13,7 +13,9 @@
             <div>
                 {{$product->price}}
             </div>
-            <form action="#" method="post">
+            <form action="/cart" method="post">
+                @csrf
+                <input type="hidden" name="product_id" value="{{$product->id}}">
                 <input type="submit" value="加入購物車" class="bg-sky-500 text-white px-4 py-2 rounded">
             </form>
         </div>

@@ -28,7 +28,7 @@ class CreateCartsTable extends Migration
      */
     public function down()
     {
-        Schema::table('carts',function(Blueprint $table){
+        Schema::table('carts',function(Bluepring $table){
             $table->dropForeign(['product_id']);
             $table->dropForeign(['user_id']);
         });

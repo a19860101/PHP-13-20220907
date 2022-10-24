@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,9 @@ Route::get('/product/{product}',[ProductController::class,'front_show']);
 // Category
 //若使用resource controller
 Route::resource('admin/category',CategoryController::class);
+
+//Cart
+Route::post('cart',[CartController::class,'addToCart']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

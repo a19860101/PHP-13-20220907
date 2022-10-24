@@ -73,6 +73,6 @@ class ProductController extends Controller
     }
     public function front_show(Product $product){
         // $product = Product::find($id);
-        return $product;
+        return view('product.show',compact('product'));
     }
 }

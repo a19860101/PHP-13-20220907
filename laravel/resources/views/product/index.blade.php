@@ -4,7 +4,7 @@
     @foreach($products as $product)
     <div class="w-1/4 p-4">
         <div>
-            <img src="images/{{$product->cover}}"  class="w-full">
+            <img src="/images/{{$product->cover}}"  class="w-full">
         </div>
         <div>
             <h3>

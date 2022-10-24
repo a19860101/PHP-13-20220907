@@ -12,7 +12,7 @@
         <a href="/product/" class="w-[200px]">QQQ SHOP</a>
         <div class="flex w-full">
             <ul class="flex ml-auto">
-                <li><a href="#">所有商品</a></li>
+                <li><a href="/product">所有商品</a></li>
             </ul>
         </div>
     </nav>

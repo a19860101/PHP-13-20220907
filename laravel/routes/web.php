@@ -43,3 +43,9 @@ Route::get('/product/{product}',[ProductController::class,'front_show']);
 // Category
 //若使用resource controller
 Route::resource('admin/category',CategoryController::class);
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';

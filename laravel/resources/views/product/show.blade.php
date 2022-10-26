@@ -10,6 +10,14 @@
             <div>
                 {{$product->description}}
             </div>
+            <div>
+                @if($product->special_price)
+                <del>{{$product->price}}</del>
+                <span class="text-rose-700 font-bold">{{$product->special_price}}</span>
+                @else
+                <span>{{$product->price}}</span>
+                @endif
+            </div>
             <form action="#" method="post">
                 <input type="submit" value="加入購物車" class="bg-sky-500 text-white px-4 py-2 rounded">
             </form>

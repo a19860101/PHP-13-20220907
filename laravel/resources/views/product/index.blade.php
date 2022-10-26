@@ -11,7 +11,12 @@
                 <a href="/product/{{$product->id}}">{{$product->title}}</a>
             </h3>
             <div>
-                {{$product->price}}
+                @if($product->special_price)
+                <del>{{$product->price}}</del>
+                <span class="text-rose-700 font-bold">{{$product->special_price}}</span>
+                @else
+                <span>{{$product->price}}</span>
+                @endif
             </div>
             <form action="/cart" method="post">
                 @csrf

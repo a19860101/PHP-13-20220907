@@ -27,4 +27,7 @@ class OrderController extends Controller
 
         return redirect('result');
     }
+    public function orderList(){
+        return view('order.list');
+    }
 }

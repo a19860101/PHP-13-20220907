@@ -57,6 +57,9 @@ Route::post('/checkout',[OrderController::class,'checkout']);
 Route::get('/result',function(){
     return view('order.result');
 });
+Route::get('/order-list',[OrderController::class,'orderList']);
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

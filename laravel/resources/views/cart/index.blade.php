@@ -24,10 +24,22 @@
             </form>
         </div>
         @endforeach
+
+
+        @if(count($carts) != 0)
+        <div class="my-4">
+            總金額{{$total}}
+            <hr>
+        </div>
         <form action="/cart/empty" method="post">
             @csrf
             <input type="submit" value="清空購物車" class="px-6 py-2 border border-rose-600" onclick="return confirm('確認刪除？')">
         </form>
+        @else
+        <div>購物車是空的喔!</div>
+        @endif
+
+
     </div>
 </div>
 @endsection

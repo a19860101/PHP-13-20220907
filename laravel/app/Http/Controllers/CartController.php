@@ -19,7 +19,19 @@ class CartController extends Controller
     public function cartIndex(){
         $carts = Cart::where('user_id',Auth::id())->get();
 
-        return view('cart.index',compact('carts'));
+        $price = [];
+
+        foreach($carts as $cart){
+            // if($cart->product->special_price){
+            //     $price[] = $cart->product->special_price;
+            // }else{
+            //     $price[] = $cart->product->price;
+            // }
+
+            $price[] = $cart->product->special_price ?? $cart->product->price ;
+        }
+        $total = collect($price)->sum();
+        return view('cart.index',compact('carts','total'));
     }
     public function delete(Cart $cart){
         $cart->delete();

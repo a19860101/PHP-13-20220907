@@ -49,6 +49,7 @@ Route::resource('admin/category',CategoryController::class);
 Route::post('cart',[CartController::class,'addToCart']);
 Route::get('cart',[CartController::class,'cartIndex']);
 Route::delete('cart/{cart}',[CartController::class,'delete']);
+Route::post('cart/empty',[CartController::class,'empty']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

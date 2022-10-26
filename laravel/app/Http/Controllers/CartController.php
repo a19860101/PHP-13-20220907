@@ -25,4 +25,11 @@ class CartController extends Controller
         $cart->delete();
         return redirect()->back();
     }
+    public function empty(){
+        $carts = Cart::where('user_id',Auth::id())->get();
+        foreach($carts as $cart){
+            $cart->delete();
+        }
+        return redirect()->back();
+    }
 }

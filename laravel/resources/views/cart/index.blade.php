@@ -24,6 +24,10 @@
             </form>
         </div>
         @endforeach
+        <form action="/cart/empty" method="post">
+            @csrf
+            <input type="submit" value="清空購物車" class="px-6 py-2 border border-rose-600" onclick="return confirm('確認刪除？')">
+        </form>
     </div>
 </div>
 @endsection

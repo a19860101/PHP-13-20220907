@@ -58,6 +58,7 @@ Route::get('/result',function(){
     return view('order.result');
 });
 Route::get('/order-list',[OrderController::class,'orderList']);
+Route::get('/order-detail/{order}',[OrderController::class,'detail']);
 
 
 Route::get('/dashboard', function () {

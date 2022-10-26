@@ -28,6 +28,10 @@ class OrderController extends Controller
         return redirect('result');
     }
     public function orderList(){
-        return view('order.list');
+        $orders = Order::where('user_id',Auth::id())->get();
+        return view('order.list',compact('orders'));
+    }
+    public function detail(Order $order){
+        return $order;
     }
 }

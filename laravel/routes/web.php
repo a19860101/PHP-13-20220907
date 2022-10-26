@@ -6,6 +6,7 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,11 @@ Route::get('cart',[CartController::class,'cartIndex']);
 Route::delete('cart/{cart}',[CartController::class,'delete']);
 Route::post('cart/empty',[CartController::class,'empty']);
 
+//order
+Route::post('/checkout',[OrderController::class,'checkout']);
+Route::get('/result',function(){
+    return view('order.result');
+});
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

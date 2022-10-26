@@ -39,6 +39,10 @@
         <div>購物車是空的喔!</div>
         @endif
 
+        <form action="/checkout" method="post">
+            @csrf
+            <input type="submit" value="結帳" class="px-6 py-2 border border-sky-600" >
+        </form>
 
     </div>
 </div>

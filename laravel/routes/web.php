@@ -27,24 +27,28 @@ Route::get('/test/{id}/{page}',[TestController::class,'qwer']);
 Route::get('/form',[TestController::class,'form']);
 Route::post('/res',[TestController::class,'res']);
 
-Route::get('/admin',function(){
-    return view('admin.index');
+
+
+// 後台管理
+Route::middleware(['can:admin'])->group(function(){
+    Route::get('/admin',function(){
+        return view('admin.index');
+    });
+    Route::get('/admin/product',[ProductController::class,'index']);
+    Route::get('/admin/product/create',[ProductController::class,'create']);
+    Route::post('/admin/product',[ProductController::class,'store']);
+    Route::delete('/admin/product/{id}',[ProductController::class,'destroy']);
+    Route::get('/admin/product/{id}/edit',[ProductController::class,'edit']);
+    Route::put('/admin/product/{id}',[ProductController::class,'update']);
 });
+Route::resource('admin/category',CategoryController::class)->middleware(['can:admin']);
 
-// Product
-Route::get('/admin/product',[ProductController::class,'index']);
-Route::get('/admin/product/create',[ProductController::class,'create']);
-Route::post('/admin/product',[ProductController::class,'store']);
-Route::delete('/admin/product/{id}',[ProductController::class,'destroy']);
-Route::get('/admin/product/{id}/edit',[ProductController::class,'edit']);
-Route::put('/admin/product/{id}',[ProductController::class,'update']);
-
+// prodcut
 Route::get('/product',[ProductController::class,'front_index']);
 Route::get('/product/{product}',[ProductController::class,'front_show']);
 
 // Category
 //若使用resource controller
-Route::resource('admin/category',CategoryController::class);
 
 //Cart
 Route::post('cart',[CartController::class,'addToCart']);

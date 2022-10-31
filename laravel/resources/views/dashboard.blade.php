@@ -11,6 +11,13 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     You're logged in!
+                    <div>
+                        @can('admin')
+                        管理員你好
+                        @elsecan('user')
+                        一般會員你好
+                        @endcan
+                    </div>
                 </div>
             </div>
         </div>

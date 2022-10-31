@@ -18,11 +18,11 @@
                     <x-nav-link href="/product">
                         {{ __('Website') }}
                     </x-nav-link>
-                    @if(Auth::user()->role == 0)
+                    @can('admin')
                     <x-nav-link href="/admin">
                         {{ __('Backend') }}
                     </x-nav-link>
-                    @endif
+                    @endcan
                 </div>
             </div>
 
@@ -42,6 +42,9 @@
                     </x-slot>
 
                     <x-slot name="content">
+                        <x-dropdown-link href="/order-list">
+                            {{ __('Order List') }}
+                        </x-dropdown-link>
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -52,9 +55,7 @@
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
                         </form>
-                        <x-dropdown-link href="/order-list">
-                            {{ __('Order List') }}
-                        </x-dropdown-link>
+
                     </x-slot>
                 </x-dropdown>
             </div>

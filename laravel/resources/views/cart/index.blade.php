@@ -41,6 +41,7 @@
 
         <form action="/checkout" method="post">
             @csrf
+            <input type="hidden" name="total" value="{{$total}}">
             <input type="submit" value="結帳" class="px-6 py-2 border border-sky-600" >
         </form>
 

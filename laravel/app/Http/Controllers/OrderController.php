@@ -11,11 +11,12 @@ use DB;
 class OrderController extends Controller
 {
     //
-    public function checkout(){
+    public function checkout(Request $request){
         $orderNo = time();
         $order = Order::create([
             'orderNo' => $orderNo,
-            'user_id' => Auth::id()
+            'user_id' => Auth::id(),
+            'total'   => $request->total
         ]);
 
         $carts = Cart::where('user_id',Auth::id())->get();
@@ -34,6 +35,6 @@ class OrderController extends Controller
     }
     public function detail(Order $order){
         $orderDetails = OrderDetail::where('order_id',$order->id)->get();
-        return $orderDetails;
+        return view('order.order_detail',compact('orderDetails','order'));
     }
 }

@@ -7,7 +7,10 @@
         <h4 class="text-3xl font-bold mb-3">
             訂單編號 {{$order->orderNo}}
         </h4>
-        <a href="/order-detail/{{$order->id}}" class="px-4 py-2 bg-amber-300 rounded">詳細資料</a>
+        <div class="mb-4">
+            訂單日期 {{$order->created_at}}
+        </div>
+        <a href="/order-detail/{{$order->id}}" class="inline-block px-4 py-2 bg-amber-300 rounded">詳細資料</a>
     </div>
     @endforeach
 </div>

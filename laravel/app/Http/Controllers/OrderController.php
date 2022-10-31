@@ -26,11 +26,15 @@ class OrderController extends Controller
                 'order_id'      => $order->id
             ]);
         }
+        foreach($carts as $cart){
+            $cart->delete();
+        }
+
 
         return redirect('result');
     }
     public function orderList(){
-        $orders = Order::where('user_id',Auth::id())->get();
+        $orders = Order::where('user_id',Auth::id())->orderBy('id','DESC')->get();
         return view('order.list',compact('orders'));
     }
     public function detail(Order $order){

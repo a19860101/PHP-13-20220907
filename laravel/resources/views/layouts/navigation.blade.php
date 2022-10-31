@@ -18,6 +18,11 @@
                     <x-nav-link href="/product">
                         {{ __('Website') }}
                     </x-nav-link>
+                    @if(Auth::user()->role == 0)
+                    <x-nav-link href="/admin">
+                        {{ __('Backend') }}
+                    </x-nav-link>
+                    @endif
                 </div>
             </div>
 

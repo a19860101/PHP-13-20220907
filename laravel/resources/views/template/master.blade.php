@@ -18,9 +18,6 @@
                 <li class="mr-4">
                     <a href="/cart">購物車</a>
                 </li>
-                <li class="mr-4">
-                    <a href="/order-list">我的訂單</a>
-                </li>
                 <li>
                     @auth
                     <a href="{{ url('/dashboard') }}">{{Auth::user()->name;}}</a>

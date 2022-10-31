@@ -47,6 +47,17 @@
                 <option value="0">下架</option>
             </select>
         </div>
+        <div class="mb-4">
+            <label for="">特色商品</label>
+            <label for="">
+                <input type="radio" name="is_feature" value="1">
+                是
+            </label>
+            <label for="">
+                <input type="radio" name="is_feature" value="0">
+                否
+            </label>
+        </div>
         <input type="submit" value="新增商品" class="bg-zinc-900 text-white px-8 py-3">
     </form>
 </div>

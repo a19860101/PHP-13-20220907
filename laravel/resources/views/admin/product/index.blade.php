@@ -9,6 +9,7 @@
                 <th>售價</th>
                 <th>特價</th>
                 <th>上架日期</th>
+                <th>特色商品</th>
                 <th>動作</th>
             </tr>
         </tr>
@@ -18,6 +19,9 @@
             <td>{{$product->price}}</td>
             <td>{{$product->special_price}}</td>
             <td>{{$product->publish_at}}</td>
+            <td>
+                {{$product->is_feature == 1 ? '是' : '否'}}
+            </td>
             <td>
                 <a href="/admin/product/{{$product->id}}/edit" class="inline-block bg-sky-600 px-6 py-2 text-white rounded">檢視編輯</a>
                 <form action="/admin/product/{{$product->id}}" method="post" class="inline-block">

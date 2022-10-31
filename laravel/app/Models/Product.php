@@ -17,7 +17,8 @@ class Product extends Model
         'special_price',
         'publish_at',
         'unpublish_at',
-        'published'
+        'published',
+        'is_feature'
     ];
     public function carts(){
         return $this->hasMany(Cart::class);

@@ -12,8 +12,14 @@
     <nav class="w-full bg-zinc-700 text-white flex justify-between px-3 py-4">
         <a href="/" class="w-[120px]">QQQ SHOP</a>
         <div class="flex w-full">
-            <ul class="flex">
+            <ul class="flex space-x-4">
                 <li><a href="/product">所有商品</a></li>
+                <?php
+                    $categories = \App\Models\Category::get();
+                ?>
+                @foreach($categories as $cate)
+                <li><a href="/product/category/{{$cate->slug}}">{{$cate->title}}</a></li>
+                @endforeach
             </ul>
             <ul class="ml-auto flex">
                 <li class="mr-4">

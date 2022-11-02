@@ -9,6 +9,10 @@
                 <label for="">分類名稱</label>
                 <input type="text" name="title" class="border border-zinc-900 w-full p-2 rounded">
             </div>
+            <div class="mb-3">
+                <label for="">分類英文名稱</label>
+                <input type="text" name="slug" class="border border-zinc-900 w-full p-2 rounded">
+            </div>
             <input type="submit" value="新增分類" class="bg-zinc-900 text-white px-8 py-3">
         </form>
     </div>

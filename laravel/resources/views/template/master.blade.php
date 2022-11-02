@@ -10,7 +10,7 @@
 </head>
 <body>
     <nav class="w-full bg-zinc-700 text-white flex justify-between px-3 py-4">
-        <a href="/product/" class="w-[120px]">QQQ SHOP</a>
+        <a href="/" class="w-[120px]">QQQ SHOP</a>
         <div class="flex w-full">
             <ul class="flex">
                 <li><a href="/product">所有商品</a></li>

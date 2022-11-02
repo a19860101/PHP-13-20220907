@@ -42,6 +42,7 @@ Route::middleware(['can:admin'])->group(function(){
     Route::put('/admin/product/{id}',[ProductController::class,'update']);
 
     Route::get('/admin/banner',[BannerController::class,'index']);
+    Route::post('/admin/banner',[BannerController::class,'store']);
 });
 Route::resource('admin/category',CategoryController::class)->middleware(['can:admin']);
 

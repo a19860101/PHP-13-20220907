@@ -9,6 +9,8 @@
                 <th>售價</th>
                 <th>特價</th>
                 <th>上架日期</th>
+                <th>下架日期</th>
+                <th>上架</th>
                 <th>特色商品</th>
                 <th>動作</th>
             </tr>
@@ -19,6 +21,8 @@
             <td>{{$product->price}}</td>
             <td>{{$product->special_price}}</td>
             <td>{{$product->publish_at}}</td>
+            <td>{{$product->unpublish_at}}</td>
+            <td>{{$product->published}}</td>
             <td>
                 {{$product->is_feature == 1 ? '是' : '否'}}
             </td>

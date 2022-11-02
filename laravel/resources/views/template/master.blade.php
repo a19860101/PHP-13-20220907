@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>QQQ Shop</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    @yield('css')
 </head>
 <body>
     <nav class="w-full bg-zinc-700 text-white flex justify-between px-3 py-4">
@@ -33,5 +34,6 @@
         </div>
     </nav>
     @yield('main')
+    @yield('script')
 </body>
 </html>

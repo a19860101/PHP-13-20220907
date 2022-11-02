@@ -1,7 +1,17 @@
 @extends('template.master')
+@section('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+@endsection
 @section('main')
     <header>
-        <img src="https://picsum.photos/id/29/1600/800" alt="" class="w-full">
+        @foreach($banners as $banner)
+        <div class="aspect-[3/1]">
+            <a href="{{$banner->link}}">
+                <img src="/images/{{$banner->img}}" alt="" class="w-full h-full object-cover">
+            </a>
+        </div>
+        @endforeach
     </header>
     <div class="container flex flex-wrap mx-auto py-[120px]">
         <div class="w-full">
@@ -71,4 +81,17 @@
             @endforeach
         </div>
     </section>
+@endsection
+@section('script')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script>
+    $(function(){
+        $('header').slick({
+            autoplay: true,
+            dots: true,
+            arrows:false
+        })
+    })
+</script>
 @endsection

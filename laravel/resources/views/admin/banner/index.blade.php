@@ -40,7 +40,9 @@
                     <img src="/images/{{$banner->img}}" alt="" class="w-32">
                 </td>
                 <td>
-                    <form action="">
+                    <form action="/admin/banner/{{$banner->id}}" method="post">
+                        @csrf
+                        @method('delete')
                         <input type="submit" value="刪除">
                     </form>
                 </td>

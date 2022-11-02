@@ -43,6 +43,7 @@ Route::middleware(['can:admin'])->group(function(){
 
     Route::get('/admin/banner',[BannerController::class,'index']);
     Route::post('/admin/banner',[BannerController::class,'store']);
+    Route::delete('/admin/banner/{banner}',[BannerController::class,'delete']);
 });
 Route::resource('admin/category',CategoryController::class)->middleware(['can:admin']);
 

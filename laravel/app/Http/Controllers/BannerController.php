@@ -29,4 +29,8 @@ class BannerController extends Controller
 
         return redirect()->back();
     }
+    public function delete(Banner $banner){
+        $banner->delete();
+        return redirect()->back();
+    }
 }

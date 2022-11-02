@@ -82,4 +82,12 @@ class ProductController extends Controller
         // $product = Product::find($id);
         return view('product.show',compact('product'));
     }
+
+    public function front_product_category($slug){
+        $category_slug = Category::where('slug',$slug)->first();
+
+        $products = Product::where('category_id',$category_slug->id)->get();
+
+        return $products;
+    }
 }

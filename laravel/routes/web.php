@@ -50,6 +50,7 @@ Route::resource('admin/category',CategoryController::class)->middleware(['can:ad
 // prodcut
 Route::get('/product',[ProductController::class,'front_index']);
 Route::get('/product/{product}',[ProductController::class,'front_show']);
+Route::get('/product/category/{slug}',[ProductController::class,'front_product_category']);
 
 // Category
 //若使用resource controller

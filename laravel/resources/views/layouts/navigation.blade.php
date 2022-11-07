@@ -18,6 +18,9 @@
                     <x-nav-link href="/product">
                         {{ __('Website') }}
                     </x-nav-link>
+                    <x-nav-link href="/user/post">
+                        {{ __('Post Managerment') }}
+                    </x-nav-link>
                     @can('admin')
                     <x-nav-link href="/admin">
                         {{ __('Backend') }}

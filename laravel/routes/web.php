@@ -9,6 +9,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,8 +47,11 @@ Route::middleware(['can:admin'])->group(function(){
     Route::delete('/admin/banner/{banner}',[BannerController::class,'delete']);
 
     Route::get('/admin/deleteCover/{id}',[CategoryController::class,'deleteCover']);
+
 });
 Route::resource('admin/category',CategoryController::class)->middleware(['can:admin']);
+
+Route::resource('/user/post',PostController::class);
 
 // prodcut
 Route::get('/product',[ProductController::class,'front_index']);

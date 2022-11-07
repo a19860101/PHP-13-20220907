@@ -9,7 +9,7 @@
     </x-slot>
     <div class="py-5">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <a href="#" class="inline-block px-5 py-3 rounded bg-teal-300">新增文章</a>
+            <a href="/user/post/create" class="inline-block px-5 py-3 rounded bg-teal-300">新增文章</a>
         </div>
     </div>
     <div>

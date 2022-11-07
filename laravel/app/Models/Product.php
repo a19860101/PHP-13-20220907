@@ -29,4 +29,12 @@ class Product extends Model
     public function orderDetails(){
         return $this->hasMany(OrderDetail::class);
     }
+    //顯示所有可上架的商品
+    public function scopeShowAll($query){
+        return $query->where('published',1)
+            ->where(function($query){
+            $query->orWhere('publish_at','<=',today())
+            ->orWhere('unpublish_at','>',today());
+        });
+    }
 }

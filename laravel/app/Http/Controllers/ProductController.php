@@ -69,11 +69,7 @@ class ProductController extends Controller
     }
     public function front_index(){
         // $products = Product::orderBy('id','DESC')->get();
-        $products = Product::where('published',1)
-        ->where(function($query){
-            $query->orWhere('publish_at','<=',today())
-            ->orWhere('unpublish_at','>',today());
-        })
+        $products = Product::showAll()
         ->orderBy('id','DESC')
         ->get();
         return view('product.index',compact('products'));
@@ -86,7 +82,7 @@ class ProductController extends Controller
     public function front_product_category($slug){
         $category_slug = Category::where('slug',$slug)->first();
 
-        $products = Product::where('category_id',$category_slug->id)->get();
+        $products = Product::showAll()->where('category_id',$category_slug->id)->get();
 
         return view('product.product_category',compact('products'));
     }

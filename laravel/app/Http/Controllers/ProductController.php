@@ -80,10 +80,10 @@ class ProductController extends Controller
     }
 
     public function front_product_category($slug){
-        $category_slug = Category::where('slug',$slug)->first();
+        $category = Category::where('slug',$slug)->first();
 
-        $products = Product::showAll()->where('category_id',$category_slug->id)->get();
+        $products = Product::showAll()->where('category_id',$category->id)->get();
 
-        return view('product.product_category',compact('products'));
+        return view('product.product_category',compact('products','category'));
     }
 }

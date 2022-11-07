@@ -1,6 +1,6 @@
 @extends('template.master')
 @section('main')
-<div class="container flex flex-wrap mx-auto">
+<div class="w-[1200px] flex flex-wrap mx-auto">
     @foreach($products as $product)
     <div class="w-1/4 p-4">
         <div>

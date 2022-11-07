@@ -1,6 +1,12 @@
 @extends('template.master')
 @section('main')
-<div class="container flex flex-wrap mx-auto">
+<div class="w-[1200px] flex flex-wrap mx-auto">
+    <div class="w-full h-60 bg-zinc-700 my-5  rounded-md overflow-hidden">
+        <img src="/images/{{$category->cover}}" alt="" class="w-full h-full object-cover object-center">
+    </div>
+    <div class="w-full mb-5 bg-cyan-200 p-4">
+        <h2 class="text-5xl font-bold">{{$category->title}}</h2>
+    </div>
     @foreach($products as $product)
     <div class="w-1/4 p-4">
         <div>

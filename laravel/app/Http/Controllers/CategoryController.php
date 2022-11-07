@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Str;
+use Storage;
 
 class CategoryController extends Controller
 {
@@ -90,12 +91,13 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         //
+
         if($request->file('cover')){
             $ext =$request->file('cover')->getClientOriginalExtension();
             $img_name = Str::uuid().'.'.$ext;
             $request->file('cover')->storeAs('images',$img_name,'public');
         }else{
-            $img_name = null;
+            $img_name = $request->cover;
         }
 
         // Category::create($request->all());
@@ -117,6 +119,17 @@ class CategoryController extends Controller
         //
         // return $category;
         $category->delete();
+        return redirect()->back();
+    }
+    public function deleteCover($id){
+        $category = Category::find($id);
+
+        Storage::disk('public')->delete('/images/'.$category->cover);
+
+        $category->cover = null;
+        $category->save();
+
+
         return redirect()->back();
     }
 }

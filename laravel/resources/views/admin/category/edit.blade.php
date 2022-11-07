@@ -20,10 +20,12 @@
                 <input type="file" name="cover" class="border border-zinc-900 w-full p-2 rounded">
                 @else
                 <img src="/images/{{$category->cover}}" alt="" class="w-36">
+                <a href="/admin/deleteCover/{{$category->id}}"class="bg-rose-900 text-white px-4 py-2">刪除封面</a>
+                <input type="hidden" name="cover" value="{{$category->cover}}">
                 @endif
             </div>
             <input type="submit" value="更新分類" class="bg-zinc-900 text-white px-8 py-3">
-            <input type="button" value="取消"  class="bg-rose-900 text-white px-8 py-3" onclick="history.back()">
+            <input type="button" value="取消"  class="bg-rose-500 text-white px-8 py-3" onclick="history.back()">
         </form>
     </div>
 

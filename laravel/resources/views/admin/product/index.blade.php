@@ -6,6 +6,7 @@
         <tr>
             <tr>
                 <th>商品名稱</th>
+                <th>商品分類</th>
                 <th>售價</th>
                 <th>特價</th>
                 <th>上架日期</th>
@@ -18,6 +19,7 @@
         @foreach($products as $product)
         <tr>
             <td>{{$product->title}}</td>
+            <td>{{$product->category->title}}</td>
             <td>{{$product->price}}</td>
             <td>{{$product->special_price}}</td>
             <td>{{$product->publish_at}}</td>

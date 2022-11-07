@@ -88,6 +88,6 @@ class ProductController extends Controller
 
         $products = Product::where('category_id',$category_slug->id)->get();
 
-        return $products;
+        return view('product.product_category',compact('products'));
     }
 }

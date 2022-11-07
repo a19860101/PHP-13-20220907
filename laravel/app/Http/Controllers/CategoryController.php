@@ -90,6 +90,20 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         //
+        if($request->file('cover')){
+            $ext =$request->file('cover')->getClientOriginalExtension();
+            $img_name = Str::uuid().'.'.$ext;
+            $request->file('cover')->storeAs('images',$img_name,'public');
+        }else{
+            $img_name = null;
+        }
+
+        // Category::create($request->all());
+        $category->fill($request->all());
+        $category->cover = $img_name;
+        $category->save();
+
+        return redirect('/admin/category');
     }
 
     /**

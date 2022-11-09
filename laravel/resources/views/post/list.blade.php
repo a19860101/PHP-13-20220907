@@ -7,7 +7,7 @@
             <h3 class="text-4xl font-bold">{{$post->title}}</h3>
             <div>{{$post->user->name}}</div>
             <div>
-                {{$post->body}}
+                {!!$post->body!!}
             </div>
             <div>
                 <a href="/post/{{$post->id}}" class="px-3 py-2 bg-sky-400 rounded">繼續閱讀</a>

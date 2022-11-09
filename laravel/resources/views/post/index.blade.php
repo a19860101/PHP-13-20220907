@@ -23,7 +23,7 @@
                             {{$post->title}}
                         </h4>
                         <div class="mb-4">
-                            {{$post->body}}
+                            {!!$post->body!!}
                         </div>
                         <a href="/user/post/{{$post->id}}" class="px-3 py-2 bg-sky-400 rounded">檢視</a>
                     </div>

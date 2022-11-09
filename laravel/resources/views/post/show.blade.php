@@ -66,4 +66,11 @@
         </div>
     </div>
 </x-app-layout>
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+tinymce.init({
+    selector: 'textarea',  // change this value according to your HTML
+    language:'zh_TW'
 
+});
+</script>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Auth;
 use Str;
@@ -56,6 +57,12 @@ class PostController extends Controller
         $post->cover = $img_name;
         $post->user_id = Auth::id();
         $post->save();
+
+        //標籤
+        $tags = explode(',',$request->tag);
+        foreach($tags as $tag){
+            Tag::firstOrCreate(['title' => $tag]);
+        }
 
         return redirect('/user/post');
     }

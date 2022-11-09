@@ -50,8 +50,9 @@ Route::middleware(['can:admin'])->group(function(){
 
 });
 Route::resource('admin/category',CategoryController::class)->middleware(['can:admin']);
-
+// post
 Route::resource('/user/post',PostController::class);
+Route::get('/user/post/deleteCover/{id}',[PostController::class,'deleteCover']);
 
 // prodcut
 Route::get('/product',[ProductController::class,'front_index']);

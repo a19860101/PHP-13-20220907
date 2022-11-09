@@ -6,6 +6,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Auth;
 use Str;
+use Storage;
 
 class PostController extends Controller
 {
@@ -116,5 +117,21 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+        Storage::disk('public')->delete('/images/'.$post->cover);
+        $post->delete();
+
+        return redirect('/user/post');
+
+    }
+    public function deleteCover($id){
+        $post = Post::find($id);
+
+        Storage::disk('public')->delete('/images/'.$post->cover);
+
+        $post->cover = null;
+        $post->save();
+
+
+        return redirect()->back();
     }
 }

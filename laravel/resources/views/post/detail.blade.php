@@ -8,7 +8,7 @@
                 {{$post->user->name}}
             </div>
             <div>
-                {{$post->body}}
+                {!!$post->body!!}
             </div>
             <div>
                 <a href="/post" class="px-3 py-2 bg-zinc-800 text-white rounded">返回</a>

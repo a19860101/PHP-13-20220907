@@ -18,7 +18,7 @@ class PostController extends Controller
     public function index()
     {
         //
-        $posts = Post::orderBy('id','DESC')->get();
+        $posts = Post::where('user_id',Auth::id())->orderBy('id','DESC')->get();
         return view('post.index',compact('posts'));
     }
 
@@ -137,5 +137,8 @@ class PostController extends Controller
     public function front_index(){
         $posts = Post::showAll()->orderBy('id','DESC')->get();
         return view('post.list',compact('posts'));
+    }
+    public function front_show(Post $post){
+        return view('post.detail',compact('post'));
     }
 }

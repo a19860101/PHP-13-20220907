@@ -17,4 +17,8 @@ class Post extends Model
             ->orWhere('unpublish_at','>',today());
         });
     }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

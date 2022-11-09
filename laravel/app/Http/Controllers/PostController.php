@@ -68,6 +68,7 @@ class PostController extends Controller
     public function show(Post $post)
     {
         //
+        return view('post.show',compact('post'));
     }
 
     /**
@@ -91,6 +92,19 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         //
+        if($request->file('cover')){
+            $ext =$request->file('cover')->getClientOriginalExtension();
+            $img_name = Str::uuid().'.'.$ext;
+            $request->file('cover')->storeAs('images',$img_name,'public');
+        }else{
+            $img_name = $request->cover;
+        }
+
+        $post->fill($request->all());
+        $post->cover = $img_name;
+        $post->save();
+
+        return redirect('/user/post');
     }
 
     /**

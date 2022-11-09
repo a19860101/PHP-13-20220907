@@ -61,7 +61,8 @@ class PostController extends Controller
         //標籤
         $tags = explode(',',$request->tag);
         foreach($tags as $tag){
-            Tag::firstOrCreate(['title' => $tag]);
+            $tagModel = Tag::firstOrCreate(['title' => $tag]);
+            $post->tags()->attach($tagModel->id);
         }
 
         return redirect('/user/post');

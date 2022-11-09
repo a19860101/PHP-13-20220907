@@ -134,4 +134,8 @@ class PostController extends Controller
 
         return redirect()->back();
     }
+    public function front_index(){
+        $posts = Post::showAll()->orderBy('id','DESC')->get();
+        return view('post.list',compact('posts'));
+    }
 }

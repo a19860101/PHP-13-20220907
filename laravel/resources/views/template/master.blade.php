@@ -13,6 +13,7 @@
         <a href="/" class="w-[120px]">QQQ SHOP</a>
         <div class="flex w-full">
             <ul class="flex space-x-4">
+                <li><a href="/post">部落格</a></li>
                 <li><a href="/product">所有商品</a></li>
                 <?php
                     $categories = \App\Models\Category::get();

@@ -53,6 +53,7 @@ Route::resource('admin/category',CategoryController::class)->middleware(['can:ad
 // post
 Route::resource('/user/post',PostController::class);
 Route::get('/user/post/deleteCover/{id}',[PostController::class,'deleteCover']);
+Route::get('/post',[PostController::class,'front_index']);
 
 // prodcut
 Route::get('/product',[ProductController::class,'front_index']);

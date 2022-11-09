@@ -20,10 +20,10 @@
                     @foreach($posts as $post)
                     <div class="my-4 border border-zinc-500 p-4 rounded">
                         <h4 class="text-3xl font-bold mb-3">
-                            訂單編號
+                            {{$post->title}}
                         </h4>
                         <div class="mb-4">
-                            訂單日期
+                            {{$post->body}}
                         </div>
                     </div>
                     @endforeach

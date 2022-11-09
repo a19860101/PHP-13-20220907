@@ -13,7 +13,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <h3 class="text-4xl font-bold mb-3">新增文章</h3>
-                    <form action="/admin/product" method="post" enctype="multipart/form-data">
+                    <form action="/user/post" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-4">
                             <label for="">名稱</label>
@@ -22,11 +22,11 @@
 
                         <div class="mb-4">
                             <label for="">封面</label>
-                            <input type="file" name="cover w-full">
+                            <input type="file" name="cover" class="w-full">
                         </div>
                         <div class="mb-4">
                             <label for="">內文</label>
-                            <textarea name="description" id="" cols="30" rows="10" class="border border-zinc-400 rounded w-full"></textarea>
+                            <textarea name="body" id="" cols="30" rows="10" class="border border-zinc-400 rounded w-full"></textarea>
                         </div>
 
                         <div class="mb-4">

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Auth;
+use Str;
 
 class PostController extends Controller
 {
@@ -39,6 +41,22 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
+
+        if($request->file('cover')){
+            $ext =$request->file('cover')->getClientOriginalExtension();
+            $img_name = Str::uuid().'.'.$ext;
+            $request->file('cover')->storeAs('images',$img_name,'public');
+        }else{
+            $img_name = null;
+        }
+
+        $post = new Post;
+        $post->fill($request->all());
+        $post->cover = $img_name;
+        $post->user_id = Auth::id();
+        $post->save();
+
+        return redirect('/user/post');
     }
 
     /**

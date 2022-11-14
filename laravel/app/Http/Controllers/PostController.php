@@ -157,4 +157,12 @@ class PostController extends Controller
     public function front_show(Post $post){
         return view('post.detail',compact('post'));
     }
+
+    public function admin_post(){
+        $posts = Post::orderBy('id','DESC')->get();
+        return view('admin.post.index',compact('posts'));
+    }
+    public function admin_show(Post $post){
+        return view('admin.post.show',compact('post'));
+    }
 }

@@ -20,7 +20,10 @@
                             <label for="">名稱</label>
                             <input type="text" name="title" class="border border-zinc-400 rounded w-full" value="{{$post->title}}">
                         </div>
-
+                        <div class="mb-4">
+                            <label for="">標籤</label>
+                            <input type="text" name="tag" class="border border-zinc-400 rounded w-full" value="">
+                        </div>
                         <div class="mb-4">
                             <label for="">封面</label>
                                 @if($post->cover == null)

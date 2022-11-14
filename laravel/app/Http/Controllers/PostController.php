@@ -113,6 +113,14 @@ class PostController extends Controller
         $post->cover = $img_name;
         $post->save();
 
+        //標籤
+        $post->tags()->detach();
+        $tags = explode(',',$request->tag);
+        foreach($tags as $tag){
+            $tagModel = Tag::firstOrCreate(['title' => $tag]);
+            $post->tags()->attach($tagModel->id);
+        }
+
         return redirect('/user/post');
     }
 

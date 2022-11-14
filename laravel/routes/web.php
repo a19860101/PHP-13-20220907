@@ -10,6 +10,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,8 @@ Route::middleware(['can:admin'])->group(function(){
     Route::get('/admin/post',[PostController::class,'admin_post']);
     Route::get('/admin/post/{post}',[PostController::class,'admin_post_show']);
     Route::delete('/admin/post/{post}',[PostController::class,'admin_post_delete']);
+
+    Route::resource('/admin/tag',TagController::class);
 
 });
 Route::resource('admin/category',CategoryController::class)->middleware(['can:admin']);

@@ -51,6 +51,8 @@ Route::middleware(['can:admin'])->group(function(){
     Route::get('/admin/post',[PostController::class,'admin_post']);
     Route::get('/admin/post/{post}',[PostController::class,'admin_post_show']);
     Route::delete('/admin/post/{post}',[PostController::class,'admin_post_delete']);
+    Route::get('/admin/post/restore/{post}',[PostController::class,'admin_post_restore']);
+    Route::post('/admin/post/forceDelete/{post}',[PostController::class,'admin_post_forceDelete']);
 
     Route::resource('/admin/tag',TagController::class);
 

@@ -48,7 +48,11 @@
                 <td>{{$post_trashed->title}}</td>
                 <td>{{$post_trashed->user->name}}</td>
                 <td>
-
+                    <a href="/admin/post/restore/{{$post_trashed->id}}" class="px-2 py-1 rounded bg-teal-500">還原</a>
+                    <form action="/admin/post/forceDelete/{{$post_trashed->id}}" method="post">
+                        @csrf
+                        <input type="submit" value="永久刪除" class="px-2 py-1 rounded bg-red-700 text-white">
+                    </form>
                 </td>
             </tr>
             @endforeach

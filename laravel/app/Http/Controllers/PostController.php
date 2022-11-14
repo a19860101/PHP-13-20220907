@@ -174,4 +174,16 @@ class PostController extends Controller
 
         return redirect('/admin/post/');
     }
+    public function admin_post_restore($id){
+        $post = Post::onlyTrashed()->find($id);
+        $post->restore();
+        return redirect()->back();
+
+    }
+    public function admin_post_forceDelete($id){
+        $post = Post::onlyTrashed()->find($id);
+        $post->forceDelete();
+        return redirect()->back();
+
+    }
 }

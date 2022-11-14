@@ -20,9 +20,16 @@
                             <label for="">名稱</label>
                             <input type="text" name="title" class="border border-zinc-400 rounded w-full" value="{{$post->title}}">
                         </div>
+                        @php
+                            $tagArray = [];
+                            foreach($post->tags as $tag){
+                                $tagArray[] = $tag->title;
+                            }
+                            $tagStr = implode(',',$tagArray);
+                        @endphp
                         <div class="mb-4">
                             <label for="">標籤</label>
-                            <input type="text" name="tag" class="border border-zinc-400 rounded w-full" value="">
+                            <input type="text" name="tag" class="border border-zinc-400 rounded w-full" value="{{$tagStr}}">
                         </div>
                         <div class="mb-4">
                             <label for="">封面</label>

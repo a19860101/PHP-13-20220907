@@ -13,9 +13,13 @@
                     foreach($post->tags as $tag){
                         $tagArray[] = $tag->title;
                     }
-                    $tagStr = implode(',',$tagArray);
                 @endphp
-                {{$tagStr}}
+                @foreach($tagArray as $t)
+                <span class="px-2 py-1 rounded bg-pink-300 mr-2 inline-block mb-4">
+                    {{$t}}
+                </span>
+                @endforeach
+                <hr>
             </div>
             <div>
                 {{Str::limit(strip_tags($post->body),200)}}

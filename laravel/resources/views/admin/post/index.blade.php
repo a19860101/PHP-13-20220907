@@ -21,8 +21,9 @@
                 <td>{{$post->published}}</td>
                 <td>
                     <a href="/admin/post/{{$post->id}}" class="px-3 py-2 bg-sky-600 rounded">檢視</a>
-                    <form action="" method="post" class="inline-block">
+                    <form action="/admin/post/{{$post->id}}" method="post" class="inline-block">
                         @csrf
+                        @method('delete')
                         <input type="submit" value="刪除" class="px-3 py-2 bg-red-600 rounded">
                     </form>
                 </td>

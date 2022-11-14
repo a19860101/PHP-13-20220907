@@ -162,7 +162,13 @@ class PostController extends Controller
         $posts = Post::orderBy('id','DESC')->get();
         return view('admin.post.index',compact('posts'));
     }
-    public function admin_show(Post $post){
+    public function admin_post_show(Post $post){
         return view('admin.post.show',compact('post'));
+    }
+    public function admin_post_delete(Post $post){
+        Storage::disk('public')->delete('/images/'.$post->cover);
+        $post->delete();
+
+        return redirect('/admin/post/');
     }
 }

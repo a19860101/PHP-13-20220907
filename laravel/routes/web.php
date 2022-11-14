@@ -48,7 +48,8 @@ Route::middleware(['can:admin'])->group(function(){
 
     Route::get('/admin/deleteCover/{id}',[CategoryController::class,'deleteCover']);
     Route::get('/admin/post',[PostController::class,'admin_post']);
-    Route::get('/admin/post/{post}',[PostController::class,'admin_show']);
+    Route::get('/admin/post/{post}',[PostController::class,'admin_post_show']);
+    Route::delete('/admin/post/{post}',[PostController::class,'admin_post_delete']);
 
 });
 Route::resource('admin/category',CategoryController::class)->middleware(['can:admin']);

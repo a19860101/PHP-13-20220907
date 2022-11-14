@@ -159,9 +159,12 @@ class PostController extends Controller
     }
 
     public function admin_post(){
+
         $posts = Post::orderBy('id','DESC')->get();
-        return view('admin.post.index',compact('posts'));
+        $posts_trashed = Post::onlyTrashed()->orderBy('id','DESC')->get();
+        return view('admin.post.index',compact('posts','posts_trashed'));
     }
+
     public function admin_post_show(Post $post){
         return view('admin.post.show',compact('post'));
     }

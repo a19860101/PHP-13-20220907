@@ -2,6 +2,7 @@
 @section('main')
 <div class="p-3">
     <h1 class="text-4xl bold">文章管理</h1>
+    <h2 class="text-3xl bold my-4">所有文章</h2>
     <table>
         <tr>
             <tr>
@@ -26,6 +27,28 @@
                         @method('delete')
                         <input type="submit" value="刪除" class="px-3 py-2 bg-red-600 rounded">
                     </form>
+                </td>
+            </tr>
+            @endforeach
+        </tr>
+
+    </table>
+    <h2 class="text-3xl bold my-4">已刪除文章</h2>
+    <table>
+        <tr>
+            <tr>
+                <th>#</th>
+                <th>文章標題</th>
+                <th>作者</th>
+                <th>動作</th>
+            </tr>
+            @foreach($posts_trashed as $post_trashed)
+            <tr>
+                <td>{{$post_trashed->id}}</td>
+                <td>{{$post_trashed->title}}</td>
+                <td>{{$post_trashed->user->name}}</td>
+                <td>
+
                 </td>
             </tr>
             @endforeach

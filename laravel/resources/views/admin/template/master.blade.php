@@ -15,13 +15,13 @@
 </head>
 <body>
     <nav class="w-[300px] bg-gray-900 fixed h-screen">
-        <a href="/admin" class="text-white block p-4">首頁</a>
-        <a href="/admin/product/" class="text-white block p-4">商品管理</a>
-        <a href="/admin/product/create" class="text-white block p-4">新增商品</a>
-        <a href="/admin/category" class="text-white block p-4">商品分類管理</a>
-        <a href="/admin/post" class="text-white block p-4">文章管理</a>
-        <a href="/admin/tag" class="text-white block p-4">文章標籤管理</a>
-        <a href="/admin/banner" class="text-white block p-4">Banner管理</a>
+        <a href="/20221116/admin" class="text-white block p-4">首頁</a>
+        <a href="/20221116/admin/product/" class="text-white block p-4">商品管理</a>
+        <a href="/20221116/admin/product/create" class="text-white block p-4">新增商品</a>
+        <a href="/20221116/admin/category" class="text-white block p-4">商品分類管理</a>
+        <a href="/20221116/admin/post" class="text-white block p-4">文章管理</a>
+        <a href="/20221116/admin/tag" class="text-white block p-4">文章標籤管理</a>
+        <a href="/20221116/admin/banner" class="text-white block p-4">Banner管理</a>
     </nav>
     <div class="pl-[300px]">
         @yield('main')

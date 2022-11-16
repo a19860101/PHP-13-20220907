@@ -8,7 +8,7 @@
         @foreach($banners as $banner)
         <div class="aspect-[3/1]">
             <a href="{{$banner->link}}">
-                <img src="/images/{{$banner->img}}" alt="" class="w-full h-full object-cover">
+                <img src="images/{{$banner->img}}" alt="" class="w-full h-full object-cover">
             </a>
         </div>
         @endforeach
@@ -21,11 +21,12 @@
         <div class="w-1/4 p-4">
             <div class="border border-zinc-400 rounded overflow-hidden">
                 <div>
-                    <img src="/images/{{ $product->cover }}" class="w-full">
+                    <img src="{{asset('20221116/images/'. $product->cover ) }}" class="w-full">
                 </div>
                 <div class="p-3">
                     <h3>
-                        <a href="/product/{{ $product->id }}">{{ $product->title }}</a>
+                        {{-- <a href="/20221116/product/{{ $product->id }}">{{ $product->title }}</a> --}}
+                        <a href="{{route('front.product.show',[$product->id])}}">{{ $product->title }}</a>
                     </h3>
                     <div>
                         @if ($product->special_price)

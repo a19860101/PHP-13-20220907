@@ -15,14 +15,14 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link href="/">
+                    <x-nav-link href="/20221116">
                         {{ __('Website') }}
                     </x-nav-link>
-                    <x-nav-link href="/user/post">
+                    <x-nav-link href="/20221116/user/post">
                         {{ __('Post Managerment') }}
                     </x-nav-link>
                     @can('admin')
-                    <x-nav-link href="/admin">
+                    <x-nav-link href="/20221116/admin">
                         {{ __('Backend') }}
                     </x-nav-link>
                     @endcan

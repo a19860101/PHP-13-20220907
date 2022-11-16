@@ -8,6 +8,14 @@
                 {{$post->user->name}}
             </div>
             <div>
+                {{$post->getPostTagString()}}
+            </div>
+            <div>
+                @foreach($post->getPostTags() as $tag)
+                <span class="py-1 px-2 bg-sky-400 rounded text-sm">{{$tag}}</span>
+                @endforeach
+            </div>
+            <div>
                 {!!$post->body!!}
             </div>
             <div>

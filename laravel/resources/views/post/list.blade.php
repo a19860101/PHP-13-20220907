@@ -8,17 +8,20 @@
             <div>{{$post->user->name}}</div>
             <hr>
             <div>
-                @php
-                  $tagArray = [];
+                {{-- @php
+                    $tagArray = [];
                     foreach($post->tags as $tag){
                         $tagArray[] = $tag->title;
                     }
-                @endphp
-                @foreach($tagArray as $t)
+                @endphp --}}
+                @foreach($post->getPostTags() as $t)
                 <span class="px-2 py-1 rounded bg-pink-300 mr-2 inline-block mb-4">
                     {{$t}}
                 </span>
                 @endforeach
+                <div>
+                    {{$post->getPostTagString()}}
+                </div>
                 <hr>
             </div>
             <div>
